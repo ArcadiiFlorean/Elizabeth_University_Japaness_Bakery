@@ -1,0 +1,28 @@
+
+
+/* html, body {
+    height: 100%;
+    margin: 0; /* Elimină marginile implicite 
+ 
+} */
+/* .container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+h1{
+    color: red;
+}
+
+.color{
+    color: rebeccapurple;
+}
+
+*/
+.noto {
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  } 

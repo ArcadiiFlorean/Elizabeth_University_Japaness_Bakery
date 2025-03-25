@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+    .navbar__list {
+        display: none; /* Ascunde meniul pe mobil */
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar__menu.open {
+        display: flex; /* Arată meniul când este activat */
+    }
+
+    .hamburger-menu {
+        display: block; /* Arată butonul hamburger pe mobil */
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .navbar__list {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

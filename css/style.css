@@ -1,0 +1,241 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  width: 66px;
+  height: 66px;
+  border-radius: 100%;
+}
+
+/*experiment */
+
+/* Importă un font tradițional japonez */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap");
+
+/* Setări generale pentru stil japonez */
+body {
+  background-color: #f8f4e6; /* Fundal inspirat de hârtia washi */
+  font-family: "Noto Serif JP", serif;
+  color: #2c2c2c;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+.header {
+  background-color: #8c2727; /* Roșu tradițional japonez */
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0; /* Fixează header-ul în partea de sus */
+  left: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
+  right: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
+  width: 100%; /* Asigură-te că ocupă întreaga lățime a paginii */
+  z-index: 1000; /* Asigură-te că este deasupra altor elemente */
+}
+
+/* .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* LOGO */
+.navbar__logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin-right: 150px;
+}
+
+/* NAVIGATION MENU */
+.navbar__menu {
+  display: flex;
+}
+
+.navbar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+}
+.navbar__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar__link {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  position: relative; /* Necesită pentru poziționarea pseudo-elementului */
+}
+
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Poziționează linia sub text */
+  width: 0; /* Inițial linia este invizibilă */
+  height: 2px; /* Grosimea liniei */
+  background-color: #fdd835; /* Galben tradițional japonez */
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar__link:hover {
+  color: #fdd835; /* Schimbă culoarea textului la hover */
+}
+
+.navbar__link:hover::after {
+  width: 100%; /* Face linia vizibilă */
+}
+/* Ascunde butonul hamburger pe desktop */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Meniul pe mobil */
+
+.main {
+  padding-top: 100px;
+}
+
+.main__welcome {
+  max-width: 1340px;
+  margin: 0 auto;
+  background-image: url(../img/main__img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 550px;
+  width: auto;
+  margin-top: 25px;
+  border-radius: 25px;
+  /* display: flex;
+flex-direction: column;
+align-items: ; */
+}
+
+.main__title {
+  font-family: "Noto Sans JP", sans-serif;
+  max-width: 550px;
+  font-size: 3.5rem; /* Dimensiune mare pentru titlu */
+  color: rgb(
+    255,
+    255,
+    255
+  ); /* Culoare albă pentru un contrast bun pe fundalul imaginii */
+  text-align: center; /* Centrarea textului pe ecran */
+  text-transform: none; /* Menținerea stilului natural al textului */
+  letter-spacing: 0.1em; /* Spațiere între litere pentru un aspect elegant */
+  padding: 30px 20px; /* Margini pentru a adăuga spațiu în jurul textului */
+}
+.main__title span {
+  color: rgb(202, 202, 202);
+  font-size: 2rem;
+}
+.main__paragraf {
+  display: flex;
+
+  text-align: center;
+  color: rgb(192, 192, 192);
+  max-width: 400px;
+  margin-left: 90px;
+}
+
+.footer {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Stiluri generale pentru toate secțiunile */
+.main__section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  max-width: 1340px;
+  margin: 0 auto;
+  font-family: "Noto Serif JP", serif;
+}
+
+/* Stiluri pentru secțiunea de introducere */
+.main__section--intro {
+  background-color: #fff0e6; /* un fundal diferit pentru introducere */
+  color: #333;
+}
+
+/* Stiluri pentru secțiunea de produse recomandate */
+.main__section--featured-products {
+  display: flex;
+  align-items: center;
+gap: 100px;
+  background-color: #ffffff; /* un fundal diferit pentru produse recomandate */
+  font-weight: bold;
+}
+
+.main__container {
+  display: flex;
+ 
+  justify-content: center;
+  gap: 55px;
+}
+
+
+.main__container--img{
+  border-radius: 100%;
+}
+
+.main__description{
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.main__section-title{
+  font-size: 3.5rem;
+  color: #8c2727;
+
+}
+
+.main__section-text{
+  font-size: 1.25rem;
+  max-width: 450px;
+  font-family: "Noto Serif JP", serif;
+}
+
+.grid__img{
+  width: 250px;
+  height: 250px;
+}
+
+/* .grid__img--modify{
+  border-radius: 25%;
+  width: 550px;
+  height: 550px;
+
+} */
