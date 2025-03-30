@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         $stmt->bind_param("sss", $name, $email, $feedback);
 
         if ($stmt->execute()) {
-            $message = "Mulțumim pentru feedback-ul dumneavoastră!";
+            $message = "Mersi pentru feedback";
         } else {
             $message = "Eroare la trimiterea feedback-ului. Vă rugăm încercați mai târziu.";
         }
@@ -34,8 +34,29 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trimite Feedback</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normallisation.css">
 </head>
 <body>
+
+<header class="header">
+
+        <nav class="navbar">
+            <a href="#" class="navbar__logo"><img src="./img/logo.jpg" alt="logo" class="logo"></a>
+            <div class="navbar__menu">
+   
+            <ul class="navbar__items">
+                <li class="navbar__list"><a class="navbar__link" href="menu.php">Meniul Zilnic</a></li>
+                <li class="navbar__list"><a class="navbar__link" href="feedback.php">Trimite Feedback</a></li>
+                <li class="navbar__list"><a class="navbar__link" href="contact.php">Contact</a></li>
+                <li class="navbar__list"><a class="navbar__link" href="login.php">Autentificare</a></li>
+            </ul>
+            <div class="hamburger-menu" onclick="toggleMenu()">
+      &#9776; <!-- Caracterul de meniu hamburger -->
+    </div>
+        </div>
+        </nav>
+    
+</header>
     <div class="feedback-form">
         <h1>Trimite Feedback</h1>
 
@@ -53,10 +74,10 @@ if (isset($_POST['submit'])) {
             <label for="feedback">Feedback:</label>
             <textarea id="feedback" name="feedback" required></textarea><br><br>
 
-            <button type="submit" name="submit">Trimite Feedback</button>
+            <button type="submit" name="submit">Send feedbak Feedback</button>
         </form>
 
-        <a href="index.php">Înapoi la pagina principală</a>
+        <a href="index.php">Back to main page</a>
     </div>
 </body>
 </html>

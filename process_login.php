@@ -69,10 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="username">Nume utilizator:</label>
                 <input type="text" id="username" name="username" required>
 
-                <label for="password">Parolă:</label>
+                <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Autentificare</button>
+                <button type="submit">Autentificate</button>
             </form>
 
             <?php if (isset($message)) { echo "<p class='error'>$message</p>"; } ?>

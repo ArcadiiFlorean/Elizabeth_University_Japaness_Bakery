@@ -180,6 +180,34 @@ align-items: ; */
   margin: 0 auto;
   font-family: "Noto Serif JP", serif;
 }
+/*EXPERIMENT*/
+
+.feature-product-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2.25rem;
+  color: #8c2727;
+}
+
+.feature-product-descripliron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 450px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.25rem;
+}
+
+.fearure-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 85px;
+}
 
 /* Stiluri pentru secțiunea de introducere */
 .main__section--intro {
@@ -189,26 +217,23 @@ align-items: ; */
 
 /* Stiluri pentru secțiunea de produse recomandate */
 .main__section--featured-products {
-  display: flex;
-  align-items: center;
-gap: 100px;
-  background-color: #ffffff; /* un fundal diferit pentru produse recomandate */
-  font-weight: bold;
+display: flex;
+align-items: center;
+
 }
 
 .main__container {
   display: flex;
- 
+
   justify-content: center;
   gap: 55px;
 }
 
-
-.main__container--img{
+.main__container--img {
   border-radius: 100%;
 }
 
-.main__description{
+.main__description {
   display: flex;
   flex-direction: column;
   max-width: 550px;
@@ -216,21 +241,30 @@ gap: 100px;
   text-align: center;
 }
 
-.main__section-title{
+.main__section-title {
   font-size: 3.5rem;
   color: #8c2727;
-
 }
 
-.main__section-text{
+.main__section-text {
   font-size: 1.25rem;
   max-width: 450px;
   font-family: "Noto Serif JP", serif;
+  color: #000000;
 }
 
-.grid__img{
+.grid__img {
   width: 250px;
   height: 250px;
+}
+
+.grid__img__right{
+  border-radius: 25px;
+  width: 450px; 
+  height: auto;
+}
+
+.main__grid {
 }
 
 /* .grid__img--modify{
@@ -239,3 +273,7 @@ gap: 100px;
   height: 550px;
 
 } */
+/*FEEDBACK-FORM*/
+.feedback-form {
+  margin-top: 150px;
+}

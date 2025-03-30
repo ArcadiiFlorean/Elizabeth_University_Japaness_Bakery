@@ -44,11 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <header>
-        <h1>Sweet Treats - Confirmare Feedback</h1>
+        <h1>Sweet Treats - oOnfirmation Feedback</h1>
         <nav>
             <ul>
-                <li><a href="index.php">Pagina Principală</a></li>
-                <li><a href="menu.php">Meniul Zilnic</a></li>
+                <li><a href="index.php">Main Page</a></li>
+                <li><a href="menu.php">Menu of the Day</a></li>
             </ul>
         </nav>
     </header>
