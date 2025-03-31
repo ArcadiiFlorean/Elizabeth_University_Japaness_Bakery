@@ -1,7 +1,7 @@
 <?php
 // Include fișierul de configurare și funcțiile necesare
-include('config.php');
-include('functions.php');
+include('../includes/config.php');
+include('../includes/functions.php');
 
 // Verificăm dacă s-au trimis datele de autentificare
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

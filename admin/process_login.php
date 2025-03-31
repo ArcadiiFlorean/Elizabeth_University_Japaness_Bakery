@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('includes/config.php');
+include('./includes/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (password_verify($password, $row['password'])) {
                 $_SESSION['admin_logged_in'] = true;
                 $_SESSION['admin_username'] = $username;
-                header("Location: dashboard.php");
+                header("Location: admin/dashboard.php");
+
                 exit();
             } else {
                 $_SESSION['login_error'] = "Parola introdusă este incorectă.";

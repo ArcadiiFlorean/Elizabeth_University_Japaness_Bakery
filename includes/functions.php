@@ -75,21 +75,27 @@ function get_feedback() {
     }
 }
 
-// Funcție pentru autentificarea administratorului
+// Funcție pentru autentificarea administratorului// Funcție pentru autentificarea administratorului
 function authenticate_admin($username, $password) {
     global $conn;
 
     // Verificăm dacă administratorul există în baza de date
-    $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $username, md5($password)); // Parola este criptată cu MD5 (ar trebui să folosești un algoritm mai sigur, de exemplu password_hash)
+    $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Dacă există un administrator cu acest nume de utilizator și parolă
+    // Dacă există un administrator cu acest nume de utilizator
     if ($result->num_rows == 1) {
-        return true;
+        $admin = $result->fetch_assoc();
+        
+        // Verificăm dacă parola introdusă este corectă
+        if (password_verify($password, $admin['password'])) {
+            return true; // Autentificare reușită
+        } else {
+            return false; // Parola incorectă
+        }
     } else {
-        return false;
+        return false; // Nume de utilizator inexistent
     }
 }
-?>

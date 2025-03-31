@@ -1,3 +1,20 @@
+<?php
+// Include fișierul de configurare pentru conexiunea la baza de date
+include('includes/config.php');
+
+// Selectează produsele din meniul zilnic
+$query = "SELECT * FROM menu";
+$result = $conn->query($query);
+
+// Verifică dacă există produse
+$menu_items = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $menu_items[] = $row;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -34,9 +51,7 @@
                         <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
                     </li>
                     <li class="navbar__list">
-                    <a class="navbar__link" href="process_login.php" aria-label="Login">Login</a>
-
-
+                        <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a>
                     </li>
                 </ul>
                 <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
@@ -61,16 +76,23 @@
                 <img class="main__container--img" src="./img/logo.jpg" width="350" height="350" alt="Sweet Treats Logo">
             </div>
         </section>
-
         <section class="main__section main__section--featured-products">
-            <h3 class="feature-product-title">Produsele Noastre</h3>
-            <p class="feature-product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, alias! Velit quidem nam nihil vitae. Quas ullam nulla rerum distinctio hic praesentium, ad, doloribus, explicabo culpa esse unde eos expedita.</p>
-            <div class="feature-img">
-                <img class="grid__img" src="./img/grid_img_01.png" alt="Featured Cake 1 - Sweet Treats">
-                <img class="grid__img" src="./img/grid_img_04.png" alt="Featured Cake 2 - Sweet Treats">
-                <img class="grid__img" src="./img/grid_img_05.png" alt="Featured Cake 3 - Sweet Treats">
-            </div>
-        </section>
+    <h3 class="feature-product-title">Produsele Noastre</h3>
+    <p class="feature-product-description">Produse proaspete și delicioase, pregătite zilnic cu drag.</p>
+    <div class="feature-img">
+    <?php foreach ($menu_items as $item): ?>
+    <div class="menu-item">
+        <h4><?php echo htmlspecialchars($item['item_name']); ?></h4>
+        <p><?php echo htmlspecialchars($item['description']); ?></p>
+        <p>Preț: <?php echo htmlspecialchars($item['price']); ?> Lei</p>
+        <!-- Afișează imaginea -->
+        <img src="<?php echo $item['image']; ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>" width="200">
+    </div>
+<?php endforeach; ?>
+
+    </div>
+</section>
+
 
         <section class="main__section main__section--customer-feedback">
             <div class="feedback">

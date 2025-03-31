@@ -1,90 +1,67 @@
 <?php
-session_start();
+// Conectează-te la baza de date
 include('includes/config.php');
 
-// Verifică dacă utilizatorul este autentificat
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header("Location: login.php"); // Redirecționează la login dacă nu este autentificat
-    exit();
-}
-
-// Verifică dacă formularul a fost trimis
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Preia datele din formular
     $item_name = $_POST['item_name'];
-    $item_description = $_POST['item_description'];
-    $item_price = $_POST['item_price'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
 
-    // Validare câmpuri
-    if (!empty($item_name) && !empty($item_description) && !empty($item_price)) {
-        // Protejarea datelor împotriva injecției SQL
-        $item_name = htmlspecialchars($item_name);
-        $item_description = htmlspecialchars($item_description);
-        $item_price = htmlspecialchars($item_price);
+    // Procesarea imaginii
+    $image = $_FILES['image']['name'];
+    $target_dir = "uploads/";  // Directorul unde vor fi salvate imaginile
+    $target_file = $target_dir . basename($image);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        // Verifică dacă prețul este un număr valid și mai mare decât 0
-        if (is_numeric($item_price) && $item_price > 0) {
-            // Căutarea de a adăuga un articol în baza de date
-            $query = "INSERT INTO menu (item_name, item_description, item_price, date_added) 
-                      VALUES (?, ?, ?, NOW())";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("ssd", $item_name, $item_description, $item_price);
+    // Verifică dacă fișierul este o imagine reală
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check !== false) {
+            echo "Fișierul este o imagine - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "Fișierul nu este o imagine.";
+            $uploadOk = 0;
+        }
+    }
 
-            // Execută interogarea
-            if ($stmt->execute()) {
-                // Dacă interogarea reușește, redirecționează la pagina de actualizare a meniului
-                header("Location: update_menu.php?status=success");
-                exit();
+    // Verifică dacă imaginea deja există
+    if (file_exists($target_file)) {
+        echo "Ne pare rău, fișierul există deja.";
+        $uploadOk = 0;
+    }
+
+    // Limitează dimensiunea fișierului
+    if ($_FILES["image"]["size"] > 500000) { // 500 KB
+        echo "Ne pare rău, fișierul este prea mare.";
+        $uploadOk = 0;
+    }
+
+    // Permite doar anumite formate de fișiere
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+        echo "Ne pare rău, doar fișiere JPG, JPEG, PNG și GIF sunt permise.";
+        $uploadOk = 0;
+    }
+
+    // Verifică dacă upload-ul a avut succes
+    if ($uploadOk == 0) {
+        echo "Fișierul nu a fost încărcat.";
+    } else {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            echo "Fișierul " . htmlspecialchars(basename($_FILES["image"]["name"])) . " a fost încărcat.";
+
+            // Adaugă produsul în baza de date
+            $query = "INSERT INTO menu (item_name, description, price, image) VALUES ('$item_name', '$description', '$price', '$target_file')";
+            if ($conn->query($query) === TRUE) {
+                echo "Produsul a fost adăugat cu succes!";
             } else {
-                $message = "Eroare la adăugarea produsului! Vă rugăm încercați din nou.";
+                echo "Eroare la adăugarea produsului: " . $conn->error;
             }
         } else {
-            $message = "Prețul trebuie să fie un număr valid și mai mare decât 0.";
+            echo "Ne pare rău, a apărut o problemă la încărcarea fișierului.";
         }
-    } else {
-        $message = "Vă rugăm completați toate câmpurile!";
     }
-} else {
-    $message = "Acces nepermis! Vă rugăm să utilizați formularul corespunzător.";
 }
-
 ?>
-
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizare Meniu - Sweet Treats</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Sweet Treats - Actualizare Meniu</h1>
-    </header>
-
-    <main>
-        <section class="menu-update">
-            <h2>Adăugați un Nou Produs</h2>
-            <form action="process_menu.php" method="POST">
-                <label for="item_name">Nume Produs:</label>
-                <input type="text" id="item_name" name="item_name" required>
-
-                <label for="item_description">Descriere Produs:</label>
-                <textarea id="item_description" name="item_description" required></textarea>
-
-                <label for="item_price">Preț Produs:</label>
-                <input type="number" id="item_price" name="item_price" step="0.01" required>
-
-                <button type="submit">Adăugați Produs</button>
-            </form>
-
-            <?php if (isset($message)) { echo "<p class='error'>$message</p>"; } ?>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Sweet Treats. Toate drepturile rezervate.</p>
-    </footer>
-</body>
-</html>
