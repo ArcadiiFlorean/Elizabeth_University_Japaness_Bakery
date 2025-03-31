@@ -77,7 +77,8 @@ if ($result->num_rows > 0) {
             <div class="feature-img">
                 <?php foreach ($menu_items as $item): ?>
                     <div class="menu-item">
-                        <h4><?php echo isset($item['item_name']) ? htmlspecialchars($item['item_name']) : 'N/A'; ?></h4>
+                    <h4><?php echo isset($item['name']) ? htmlspecialchars($item['name']) : 'N/A'; ?></h4>
+
                         <p><?php echo isset($item['description']) ? htmlspecialchars($item['description']) : 'No description available'; ?></p>
                         <p>Preț: <?php echo isset($item['price']) ? htmlspecialchars($item['price']) : '0.00'; ?> Lei</p>
                         <img src="./uploads/<?php echo isset($item['image']) ? basename($item['image']) : 'default.jpg'; ?>" alt="<?php echo isset($item['item_name']) ? htmlspecialchars($item['item_name']) : 'No name'; ?>" width="200">
