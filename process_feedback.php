@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <nav>
             <ul>
                 <li><a href="index.php">Pagina Principală</a></li>
-                <li><a href="menu.php">Meniul Zilnic</a></li>
+                <li><a class="navbar__link" href="#featured-products" aria-label="Daily menu">Daily Menu</a></li>
             </ul>
         </nav>
     </header>

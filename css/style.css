@@ -94,6 +94,19 @@ body {
   position: relative; /* Necesită pentru poziționarea pseudo-elementului */
 }
 
+/*header special*/
+.login-container{
+padding-top: 150px;
+}
+
+.dashboard-container{
+  padding-top: 150px;
+}
+
+
+.admin-dashboard{
+padding-top: 150px;
+}
 .navbar__link::after {
   content: "";
   position: absolute;

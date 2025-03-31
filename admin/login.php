@@ -28,9 +28,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autentificare Administrator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/normallisation.css">
 </head>
 <body>
+<header class="header">
+        <nav class="navbar">
+            <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
+                <img src="../img/logo.jpg" alt="Sweet Treats Logo" class="logo">
+            </a>
+            <div class="navbar__menu">
+                <ul class="navbar__items">
+                    <li class="navbar__list">
+                    <a class="navbar__link" href="../index.php#featured-products" aria-label="Daily menu">Daily Menu</a>
+
+
+
+                    </li>
+                    <li class="navbar__list">
+                        <a class="navbar__link" href="feedback.php" aria-label="Submit feedback">Submit Feedback</a>
+                    </li>
+                    <li class="navbar__list">
+                        <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
+                    </li>
+                    <li class="navbar__list">
+                        <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a>
+                    </li>
+                </ul>
+                <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
+                    &#9776; <!-- Hamburger menu character -->
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="login-container">
         <h2>Autentificare Administrator</h2>
 
