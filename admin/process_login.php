@@ -1,39 +1,24 @@
 <?php
 session_start();
-include('./includes/config.php');
+include('../includes/config.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = trim($_POST['username']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if (!empty($username) && !empty($password)) {
-        $query = "SELECT * FROM admins WHERE username = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    // Verifică dacă utilizatorul există în baza de date
+    $query = "SELECT * FROM admins WHERE username = ? AND password = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
-            if (password_verify($password, $row['password'])) {
-                $_SESSION['admin_logged_in'] = true;
-                $_SESSION['admin_username'] = $username;
-                header("Location: admin/dashboard.php");
-
-                exit();
-            } else {
-                $_SESSION['login_error'] = "Parola introdusă este incorectă.";
-            }
-        } else {
-            $_SESSION['login_error'] = "Nume utilizator incorect.";
-        }
+    if ($result->num_rows == 1) {
+        $_SESSION['admin_logged_in'] = true;
+        header("Location: admin_menu.php"); // Redirecționează spre pagina adminului
+        exit();
     } else {
-        $_SESSION['login_error'] = "Toate câmpurile sunt obligatorii.";
+        echo "Login eșuat! Verifică numele de utilizator și parola.";
     }
-} else {
-    $_SESSION['login_error'] = "Acces nepermis.";
 }
-
-header("Location: login.php");
-exit();
 ?>

@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 include('../includes/config.php');
 
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
             // Verifică dacă fișierul este o imagine
             if (getimagesize($_FILES["image"]["tmp_name"]) !== false) {
                 // Verifică dimensiunea fișierului
-                $max_size = 5000000; // 5MB
+                $max_size = 50000000; // 5MB
                 if ($_FILES["image"]["size"] > $max_size) {
                     echo "Fișierul este prea mare.";
                     exit();
@@ -138,7 +138,7 @@ if (isset($_GET['edit'])) {
                     </li>
                 </ul>
                 <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
-                    &#9776; <!-- Hamburger menu character -->
+                    &#9776; 
                 </div>
             </div>
         </nav>
@@ -162,7 +162,7 @@ if (isset($_GET['edit'])) {
 
             <button type="submit" name="submit">Actualizează Meniul</button>
         </form>
-        include('includes/config.php');
+       
 
 
 
@@ -173,4 +173,4 @@ if (isset($_GET['edit'])) {
         <a href="dashboard.php">Înapoi la panou de administrare</a>
     </div>
 </body>
-</html>
+</html>  

@@ -47,7 +47,9 @@ if ($result->num_rows > 0) {
                 <ul class="navbar__items">
                     <li class="navbar__list">
                         <a class="navbar__link" href="#featured-products" aria-label="Daily menu">Daily Menu</a>
+
                     </li>
+                    <li class="navbar__list">  <a href="./admin/admin_menu.php">Administrează produsele</a></li>
                     <li class="navbar__list">
                         <a class="navbar__link" href="feedback.php" aria-label="Submit feedback">Submit Feedback</a>
                     </li>
@@ -55,7 +57,8 @@ if ($result->num_rows > 0) {
                         <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
                     </li>
                     <li class="navbar__list">
-                        <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a>
+                        <!-- <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a> -->
+                        <a class="navbar__link" href="./admin/admin_menu.php" aria-label="Login">Login</a>
                     </li>
                 </ul>
                 <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
@@ -75,18 +78,29 @@ if ($result->num_rows > 0) {
             <h3 class="feature-product-title">Daily Menu</h3>
             <p class="feature-product-description">Produse proaspete și delicioase, pregătite zilnic cu drag.</p>
             <div class="feature-img">
-                <?php foreach ($menu_items as $item): ?>
-                    <div class="menu-item">
-                    <h4><?php echo isset($item['name']) ? htmlspecialchars($item['name']) : 'N/A'; ?></h4>
+            <?php foreach ($menu_items as $item): ?>
+    
+    <div class="menu-item">
+        <h4><?php echo htmlspecialchars($item['name']); ?></h4>
+        <p><?php echo htmlspecialchars($item['description']); ?></p>
+        <p>Preț: <?php echo htmlspecialchars($item['price']); ?> Lei</p>
+        <img src="./admin/<?php echo htmlspecialchars($item['image']); ?>" 
+     alt="<?php echo htmlspecialchars($item['name']); ?>" 
+     width="200">
 
-                        <p><?php echo isset($item['description']) ? htmlspecialchars($item['description']) : 'No description available'; ?></p>
-                        <p>Preț: <?php echo isset($item['price']) ? htmlspecialchars($item['price']) : '0.00'; ?> Lei</p>
-                        <img src="./uploads/<?php echo isset($item['image']) ? basename($item['image']) : 'default.jpg'; ?>" alt="<?php echo isset($item['item_name']) ? htmlspecialchars($item['item_name']) : 'No name'; ?>" width="200">
-                    </div>
-                <?php endforeach; ?>
+
+
+
+    </div>
+<?php endforeach; ?>
+
             </div>
         </section>
     </main>
+
+
+        
+
 
     <footer class="footer">
         <p>Sweet Treats - Toate drepturile rezervate &copy; 2025</p>
