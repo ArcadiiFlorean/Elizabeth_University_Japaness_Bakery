@@ -22,24 +22,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $item_description = htmlspecialchars($item_description);
         $item_price = htmlspecialchars($item_price);
 
-        // Căutarea de a adăuga un articol în baza de date
-        $query = "INSERT INTO menu (item_name, item_description, item_price, date_added) 
-                  VALUES (?, ?, ?, NOW())";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssd", $item_name, $item_description, $item_price);
+        // Verifică dacă prețul este un număr valid și mai mare decât 0
+        if (is_numeric($item_price) && $item_price > 0) {
+            // Căutarea de a adăuga un articol în baza de date
+            $query = "INSERT INTO menu (item_name, item_description, item_price, date_added) 
+                      VALUES (?, ?, ?, NOW())";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ssd", $item_name, $item_description, $item_price);
 
-        // Execută interogarea
-        if ($stmt->execute()) {
-            // Dacă interogarea reușește, redirecționează la pagina de actualizare a meniului
-            header("Location: update_menu.php?status=success");
+            // Execută interogarea
+            if ($stmt->execute()) {
+                // Dacă interogarea reușește, redirecționează la pagina de actualizare a meniului
+                header("Location: update_menu.php?status=success");
+                exit();
+            } else {
+                $message = "Eroare la adăugarea produsului! Vă rugăm încercați din nou.";
+            }
         } else {
-            $message = "Eroare la adăugarea produsului!";
+            $message = "Prețul trebuie să fie un număr valid și mai mare decât 0.";
         }
     } else {
         $message = "Vă rugăm completați toate câmpurile!";
     }
 } else {
-    $message = "Acces nepermis!";
+    $message = "Acces nepermis! Vă rugăm să utilizați formularul corespunzător.";
 }
 
 ?>

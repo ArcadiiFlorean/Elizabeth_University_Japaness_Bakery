@@ -19,7 +19,7 @@ $result = $conn->query($query);
         <h1>Sweet Treats - Meniul Zilnic</h1>
         <nav>
             <ul>
-                <li><a href="index.php">Main Page</a></li>
+                <li><a href="index.php">Pagina Principală</a></li>
                 <li><a href="feedback.php">Trimite Feedback</a></li>
             </ul>
         </nav>
@@ -33,9 +33,9 @@ $result = $conn->query($query);
                 <table>
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Description</th>
-                            <th>Price</th>
+                            <th>Produs</th>
+                            <th>Descriere</th>
+                            <th>Preț</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,7 +49,7 @@ $result = $conn->query($query);
                     </tbody>
                 </table>
             <?php else: ?>
-                <p>Wi donnt have prodducts today plese check later</p>
+                <p>Nu avem produse disponibile astăzi. Te rugăm să verifici mai târziu.</p>
             <?php endif; ?>
         </section>
     </main>

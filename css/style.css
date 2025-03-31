@@ -1,3 +1,4 @@
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -203,10 +204,6 @@ align-items: ; */
 }
 
 .fearure-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 85px;
 }
 
 /* Stiluri pentru secțiunea de introducere */
@@ -217,9 +214,16 @@ align-items: ; */
 
 /* Stiluri pentru secțiunea de produse recomandate */
 .main__section--featured-products {
-display: flex;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
 
+.fearure-img {
+  display: flex;
+  align-items: center;
+  gap: 100px;
 }
 
 .main__container {
@@ -258,9 +262,9 @@ align-items: center;
   height: 250px;
 }
 
-.grid__img__right{
+.grid__img__right {
   border-radius: 25px;
-  width: 450px; 
+  width: 450px;
   height: auto;
 }
 
@@ -274,6 +278,11 @@ align-items: center;
 
 } */
 /*FEEDBACK-FORM*/
+
+.main__section--customer-feedback {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff6347);
+}
+
 .feedback-form {
   margin-top: 150px;
 }

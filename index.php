@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,9 @@
                         <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
                     </li>
                     <li class="navbar__list">
-                        <a class="navbar__link" href="login.php" aria-label="Login">Login</a>
+                    <a class="navbar__link" href="process_login.php" aria-label="Login">Login</a>
+
+
                     </li>
                 </ul>
                 <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
@@ -61,18 +63,12 @@
         </section>
 
         <section class="main__section main__section--featured-products">
-            <div class="content__left">
-                <h3 class="feature-product-title">Produsele Noastre</h3>
-                <p class="feature-product-descripliron">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, alias! Velit quidem nam nihil vitae. Quas ullam nulla rerum distinctio hic praesentium, ad, doloribus, explicabo culpa esse unde eos expedita.</p>
-                <div class="fearure-img">
-                    <img class="grid__img" src="./img/grid_img_01.png" alt="Featured Cake 1">
-                    <img class="grid__img" src="./img/grid_img_04.png" alt="Featured Cake 2">
-                    <img class="grid__img" src="./img/grid_img_05.png" alt="Featured Cake 3">
-                </div>
-            </div>
-            <div class="content__right">
-            <h3 class="feature-product-right-content">Produsele Noastre</h3>
-                <img src="./img/refreshment.png" alt="rightimg" class="grid__img__right">
+            <h3 class="feature-product-title">Produsele Noastre</h3>
+            <p class="feature-product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, alias! Velit quidem nam nihil vitae. Quas ullam nulla rerum distinctio hic praesentium, ad, doloribus, explicabo culpa esse unde eos expedita.</p>
+            <div class="feature-img">
+                <img class="grid__img" src="./img/grid_img_01.png" alt="Featured Cake 1 - Sweet Treats">
+                <img class="grid__img" src="./img/grid_img_04.png" alt="Featured Cake 2 - Sweet Treats">
+                <img class="grid__img" src="./img/grid_img_05.png" alt="Featured Cake 3 - Sweet Treats">
             </div>
         </section>
 
@@ -87,22 +83,24 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="footer__text">&copy; 2025 Sweet Treats. All` rights reserved.</p>
+            <p class="footer__text">&copy; 2025 Sweet Treats. All rights reserved.</p>
             <div class="footer__container">
-       <ul class="footer__list">
-        <li class="footer__items">
-            <a href="#" class="footer__link">Home</a>
-        </li>
-        <li class="footer__items">
-            <a href="#" class="footer__link">About</a>
-        </li>
-        <li class="footer__items">
-            <a href="#" class="footer__link">Contact Us</a>
-        </li>
-        <li class="footer__items">
-            <a href="#" class="footer__link">Link</a>
-        </li>
-       </ul>
+                <nav class="footer__nav">
+                    <ul class="footer__list">
+                        <li class="footer__items">
+                            <a href="#" class="footer__link">Home</a>
+                        </li>
+                        <li class="footer__items">
+                            <a href="#" class="footer__link">About</a>
+                        </li>
+                        <li class="footer__items">
+                            <a href="#" class="footer__link">Contact Us</a>
+                        </li>
+                        <li class="footer__items">
+                            <a href="#" class="footer__link">Link</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </footer>
