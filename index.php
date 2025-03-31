@@ -87,6 +87,7 @@ if ($result->num_rows > 0) {
         <p>Preț: <?php echo htmlspecialchars($item['price']); ?> Lei</p>
         <!-- Afișează imaginea -->
         <img src="<?php echo $item['image']; ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>" width="200">
+
     </div>
 <?php endforeach; ?>
 
