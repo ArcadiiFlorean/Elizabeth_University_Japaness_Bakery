@@ -19,7 +19,10 @@ if (!isset($_SESSION['csrf_token'])) {
 // Funcție de validare a fișierelor imagine
 function validateImage($image) {
     $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-    return in_array($image['type'], $allowed_types);
+    $image_extension = pathinfo($image['name'], PATHINFO_EXTENSION);
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+    
+    return in_array($image['type'], $allowed_types) && in_array(strtolower($image_extension), $allowed_extensions);
 }
 
 // Salvarea modificărilor pentru setările de contact
@@ -45,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add']) && $_POST['csr
     $name = htmlspecialchars($_POST['name']);
     $description = htmlspecialchars($_POST['description']);
     $price = (float)$_POST['price'];
-    
+
     $target_file = 'default.jpg';
     if (!empty($_FILES['image']['name']) && validateImage($_FILES['image'])) {
         $target_dir = "uploads/";
@@ -76,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update']) && $_POST['
 
     if (!empty($_FILES['image']['name']) && validateImage($_FILES['image'])) {
         if (file_exists($target_file) && $target_file !== 'default.jpg') {
-            unlink($target_file);
+            unlink($target_file); // Șterge vechea imagine
         }
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES['image']['name']);
@@ -132,7 +135,7 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="header">
+<header class="header-admin">
     <nav class="navbar">
         <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
             <img src="../img/logo.jpg" alt="Sweet Treats Logo" class="logo">Admin
@@ -158,8 +161,9 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 </header>
 
 <section class="section-dashboard">
-    <div class="dashboard">
-        <h1>Admin - Setări Contact</h1>
+    <div class="container">
+    <div class="admin_settings">
+        <h1>Admin - Settings Contact</h1>
         <form action="dashboard.php" method="POST">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <input type="hidden" name="update_contact" value="1">
@@ -178,8 +182,13 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 
             <input type="submit" value="Salvează modificările">
         </form>
+        </div>
+   
+    <div class="dashboard">
 
-        <h1>Admin - Meniu Produse</h1>
+           <div class="admin_meniu">
+
+            <h1>Admin - Meniu Produse</h1>
         <h2>Adaugă un nou produs</h2>
         <form action="dashboard.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
@@ -195,6 +204,19 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
             <input type="submit" value="Adaugă">
         </form>
 
+           </div>
+
+<div class="admin_img">
+
+<form action="upload_main_image.php" method="POST" enctype="multipart/form-data">
+    <label for="main_image">Upload New Main Image:</label>
+    <input type="file" name="main_image" id="main_image" required>
+    <button type="submit" name="upload">Upload</button>
+</form>
+
+</div>
+
+       <div class="admin_products">
         <h2>Produse existente</h2>
         <table border="1">
             <tr><th>ID</th><th>Nume</th><th>Descriere</th><th>Preț</th><th>Imagine</th><th>Acțiuni</th></tr>
@@ -220,7 +242,12 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
                 </tr>
             <?php endforeach; ?>
         </table>
+        </div>
     </div>
+    </div>
+
 </section>
+
 </body>
 </html>
+

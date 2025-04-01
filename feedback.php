@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <header class="header">
 
         <nav class="navbar">
-            <a href="#" class="navbar__logo"><img src="./img/logo.jpg" alt="logo" class="logo"></a>
+            <a href="index.php" class="navbar__logo"><img src="./img/logo.jpg" alt="logo" class="logo"></a>
             <div class="navbar__menu">
    
             <ul class="navbar__items">

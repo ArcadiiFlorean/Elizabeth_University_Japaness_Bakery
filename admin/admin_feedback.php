@@ -31,7 +31,7 @@ $result = $conn->query($query);
 </head>
 <body>
 
-<header class="header">
+<header class="header-admin">
     <nav class="navbar">
         <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
             <img src="../img/logo.jpg" alt="Sweet Treats Logo" class="logo">
@@ -51,7 +51,7 @@ $result = $conn->query($query);
                     <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
                 </li>
                 <li class="navbar__list">
-                    <a class="navbar__link" href="./admin/login.php" aria-label="Login">Login</a>
+                    <button class="back-button" onclick="window.history.back();" aria-label="Go back">Back</button>
                 </li>
             </ul>
             <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
