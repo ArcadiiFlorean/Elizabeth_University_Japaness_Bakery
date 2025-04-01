@@ -45,11 +45,18 @@ if ($result->num_rows > 0) {
             </a>
             <div class="navbar__menu">
                 <ul class="navbar__items">
+                <li class="navbar__list">
+                        <a class="navbar__link" href="index.php" aria-label="Daily menu">Home</a>
+
+                    </li>
                     <li class="navbar__list">
                         <a class="navbar__link" href="#featured-products" aria-label="Daily menu">Daily Menu</a>
 
                     </li>
-                    <li class="navbar__list">  <a href="./admin/admin_menu.php">Administrează produsele</a></li>
+                    <!-- <li class="navbar__list">  <a href="./admin/admin_menu.php">Administrează produsele</a></li> -->
+                    <!-- <li class="navbar__list">
+                        <a class="navbar__link" href="category.php?id=<?php echo $category['id']; ?>" aria-label="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a>
+                    </li> -->
                     <li class="navbar__list">
                         <a class="navbar__link" href="feedback.php" aria-label="Submit feedback">Submit Feedback</a>
                     </li>
@@ -58,7 +65,7 @@ if ($result->num_rows > 0) {
                     </li>
                     <li class="navbar__list">
                         <!-- <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a> -->
-                        <a class="navbar__link" href="./admin/admin_menu.php" aria-label="Login">Login</a>
+                        <a class="navbar__link" href="./admin/login.php" aria-label="Login">Login</a>
                     </li>
                 </ul>
                 <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">

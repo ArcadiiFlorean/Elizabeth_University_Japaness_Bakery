@@ -1,11 +1,100 @@
 <?php
 session_start();
-
-// Verifică dacă utilizatorul este autentificat
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: login.php");
-    exit;
+    exit();
 }
+
+include('../includes/config.php');
+
+if (!$conn) {
+    die("Eroare la conectarea la baza de date: " . mysqli_connect_error());
+}
+
+// CSRF Token Generation
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+// Funcție de validare a fișierelor imagine
+function validateImage($image) {
+    $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+    return in_array($image['type'], $allowed_types);
+}
+
+// Adaugă produs
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+    $name = htmlspecialchars($_POST['name']);
+    $description = htmlspecialchars($_POST['description']);
+    $price = (float)$_POST['price'];
+    
+    $target_file = 'default.jpg';
+    if (!empty($_FILES['image']['name']) && validateImage($_FILES['image'])) {
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES['image']['name']);
+        move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+    }
+
+    $query = "INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssds", $name, $description, $price, $target_file);
+    $stmt->execute();
+}
+
+// Actualizează produs
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+    $id = intval($_POST['id']);
+    $name = htmlspecialchars($_POST['name']);
+    $description = htmlspecialchars($_POST['description']);
+    $price = (float)$_POST['price'];
+    
+    $query = "SELECT image FROM products WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $target_file = $row['image'];
+
+    if (!empty($_FILES['image']['name']) && validateImage($_FILES['image'])) {
+        if (file_exists($target_file) && $target_file !== 'default.jpg') {
+            unlink($target_file);
+        }
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES['image']['name']);
+        move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+    }
+
+    $query = "UPDATE products SET name = ?, description = ?, price = ?, image = ? WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssdsi", $name, $description, $price, $target_file, $id);
+    $stmt->execute();
+}
+
+// Șterge produs
+if (isset($_GET['delete_id'])) {
+    $id = intval($_GET['delete_id']);
+
+    $query = "SELECT image FROM products WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    if ($row && file_exists($row['image'])) {
+        unlink($row['image']);
+    }
+
+    $query = "DELETE FROM products WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+}
+
+// Selectează produse
+$query = "SELECT * FROM products";
+$result = $conn->query($query);
+$products = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +102,18 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panou Admin</title>
+    <meta name="description" content="Sweet Treats - Japanese bakery with fresh products and customer feedback. Check out our daily menu!">
+    <meta property="og:title" content="Sweet Treats - Japanese Bakery">
+    <meta property="og:description" content="At Sweet Treats, we create delicious cakes and pastries made with love every day.">
+    <meta property="og:image" content="./img/logo.jpg">
+    <title>Sweet Treats - Homepage</title>
+
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/normallisation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <header class="header">
         <nav class="navbar">
             <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
@@ -26,9 +122,10 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
             <div class="navbar__menu">
                 <ul class="navbar__items">
                     <li class="navbar__list">
-                    <a class="navbar__link" href="../index.php#featured-products" aria-label="Daily menu">Daily Menu</a>
+                        <a class="navbar__link" href="#featured-products" aria-label="Daily menu">Daily Menu</a>
 
                     </li>
+                    <li class="navbar__list">  <a href="./admin/admin_menu.php">Administrează produsele</a></li>
                     <li class="navbar__list">
                         <a class="navbar__link" href="feedback.php" aria-label="Submit feedback">Submit Feedback</a>
                     </li>
@@ -36,7 +133,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                         <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
                     </li>
                     <li class="navbar__list">
-                        <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a>
+                        <!-- <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a> -->
+                        <a class="navbar__link" href="./admin/login.php" aria-label="Login">Login</a>
                     </li>
                 </ul>
                 <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
@@ -45,21 +143,52 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
             </div>
         </nav>
     </header>
+<section class="section-dashboard">
+    <div class="dashboard">
 
-    <div class="dashboard-container">
-        <h2>Bine ai venit, Admin!</h2>
-        <nav>
-            <ul>
-                <li><a href="../add_product.php">Add Product</a></li>
-                <li><a href="update_menu.php">Actualizare Meniu</a></li>
-                <li><a href="view_feedback.php">Vizualizare Feedback</a></li>
-                <li><a href="logout.php">Deconectare</a></li>
-            </ul>
-        </nav>
-        <p>Selectează o opțiune din meniul de administrare.</p>
+    
+    <h1>Admin - Meniu Produse</h1>
+    <h2>Adaugă un nou produs</h2>
+    <form action="admin_menu.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+        <input type="hidden" name="add" value="1">
+        <label>Nume produs:</label>
+        <input type="text" name="name" required><br>
+        <label>Descriere:</label>
+        <textarea name="description" required></textarea><br>
+        <label>Preț:</label>
+        <input type="number" name="price" step="0.01" required><br>
+        <label>Imagine:</label>
+        <input type="file" name="image"><br>
+        <input type="submit" value="Adaugă">
+    </form>
+    <h2>Produse existente</h2>
+    <table border="1">
+        <tr><th>ID</th><th>Nume</th><th>Descriere</th><th>Preț</th><th>Imagine</th><th>Acțiuni</th></tr>
+        <?php foreach ($products as $product): ?>
+            <tr>
+                <form action="dashboard.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                    <input type="hidden" name="update" value="1">
+                    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                    <td><?php echo $product['id']; ?></td>
+                    <td><input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>"></td>
+                    <td><textarea name="description"><?php echo htmlspecialchars($product['description']); ?></textarea></td>
+                    <td><input type="number" name="price" step="0.01" value="<?php echo $product['price']; ?>"> Lei</td>
+                    <td>
+                        <img src="<?php echo $product['image']; ?>" width="100"><br>
+                        <input type="file" name="image">
+                    </td>
+                    <td>
+                        <input type="submit" value="Salvează">
+                        <a href="dashboard.php?delete_id=<?php echo $product['id']; ?>" onclick="return confirm('Sigur ștergi?')">Șterge</a>
+                    </td>
+                </form>
+            </tr>
+        <?php endforeach; ?>
+    </table>
     </div>
 
-
-
+    </section>
 </body>
 </html>

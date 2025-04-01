@@ -6,19 +6,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Verifică dacă utilizatorul există în baza de date
-    $query = "SELECT * FROM admins WHERE username = ? AND password = ?";
+    // Selectează doar username-ul și hash-ul parolei din baza de date
+    $query = "SELECT id, username, password FROM admins WHERE username = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $username, $password);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
-        $_SESSION['admin_logged_in'] = true;
-        header("Location: admin_menu.php"); // Redirecționează spre pagina adminului
-        exit();
+        $user = $result->fetch_assoc();
+        
+        // Verifică parola introdusă cu hash-ul din baza de date
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+
+            header("Location: admin_menu.php"); // Redirecționează spre pagina adminului
+            exit();
+        } else {
+            echo "Parolă incorectă!";
+        }
     } else {
-        echo "Login eșuat! Verifică numele de utilizator și parola.";
+        echo "Nume de utilizator inexistent!";
     }
 }
 ?>

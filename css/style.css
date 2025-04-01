@@ -107,6 +107,10 @@ padding-top: 150px;
 .admin-dashboard{
 padding-top: 150px;
 }
+
+.dashboard{
+  padding-top: 150px;
+}
 .navbar__link::after {
   content: "";
   position: absolute;
