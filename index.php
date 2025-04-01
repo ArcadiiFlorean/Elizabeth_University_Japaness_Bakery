@@ -19,10 +19,21 @@ if ($result->num_rows > 0) {
         $menu_items[] = $row;
     }
 }
+
+// Începe sesiunea pentru a accesa mesajul de feedback
+// session_start();
+
+// Verifică dacă există un mesaj de feedback
+if (isset($_SESSION['feedback_message'])) {
+    $feedback_message = $_SESSION['feedback_message'];
+    unset($_SESSION['feedback_message']);  // Șterge mesajul din sesiune după ce a fost afișat
+} else {
+    $feedback_message = '';
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,26 +56,19 @@ if ($result->num_rows > 0) {
             </a>
             <div class="navbar__menu">
                 <ul class="navbar__items">
-                <li class="navbar__list">
+                    <li class="navbar__list">
                         <a class="navbar__link" href="index.php" aria-label="Daily menu">Home</a>
-
                     </li>
                     <li class="navbar__list">
                         <a class="navbar__link" href="#featured-products" aria-label="Daily menu">Daily Menu</a>
-
                     </li>
-                    <!-- <li class="navbar__list">  <a href="./admin/admin_menu.php">Administrează produsele</a></li> -->
-                    <!-- <li class="navbar__list">
-                        <a class="navbar__link" href="category.php?id=<?php echo $category['id']; ?>" aria-label="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a>
-                    </li> -->
                     <li class="navbar__list">
                         <a class="navbar__link" href="feedback.php" aria-label="Submit feedback">Submit Feedback</a>
                     </li>
                     <li class="navbar__list">
-                        <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
+                        <a class="navbar__link" href="./contact.php" aria-label="Contact us">Contact</a>
                     </li>
                     <li class="navbar__list">
-                        <!-- <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a> -->
                         <a class="navbar__link" href="./admin/login.php" aria-label="Login">Login</a>
                     </li>
                 </ul>
@@ -81,33 +85,31 @@ if ($result->num_rows > 0) {
             <p class="main__paragraf">日本のレストランは、寿司、刺身、天ぷら、ラーメンなどの新鮮な料理を提供します。落ち着いた雰囲気で、細部にこだわったデザインが特徴です。</p>
         </div>
 
+        <!-- Secțiune pentru mesajul de feedback -->
+        <?php if ($feedback_message != ''): ?>
+            <section class="confirmation">
+                <h2>Confirmare Feedback</h2>
+                <p><?php echo $feedback_message; ?></p>
+            </section>
+        <?php endif; ?>
+
         <section id="featured-products" class="main__section main__section--featured-products">
             <h3 class="feature-product-title">Daily Menu</h3>
             <p class="feature-product-description">Produse proaspete și delicioase, pregătite zilnic cu drag.</p>
             <div class="feature-img">
-            <?php foreach ($menu_items as $item): ?>
-    
-    <div class="menu-item">
-        <h4><?php echo htmlspecialchars($item['name']); ?></h4>
-        <p><?php echo htmlspecialchars($item['description']); ?></p>
-        <p>Preț: <?php echo htmlspecialchars($item['price']); ?> Lei</p>
-        <img src="./admin/<?php echo htmlspecialchars($item['image']); ?>" 
-     alt="<?php echo htmlspecialchars($item['name']); ?>" 
-     width="200">
-
-
-
-
-    </div>
-<?php endforeach; ?>
-
+                <?php foreach ($menu_items as $item): ?>
+                    <div class="menu-item">
+                        <h4><?php echo htmlspecialchars($item['name']); ?></h4>
+                        <p><?php echo htmlspecialchars($item['description']); ?></p>
+                        <p>Preț: <?php echo htmlspecialchars($item['price']); ?> Lei</p>
+                        <img src="./admin/<?php echo htmlspecialchars($item['image']); ?>" 
+                             alt="<?php echo htmlspecialchars($item['name']); ?>" 
+                             width="200">
+                    </div>
+                <?php endforeach; ?>
             </div>
         </section>
     </main>
-
-
-        
-
 
     <footer class="footer">
         <p>Sweet Treats - Toate drepturile rezervate &copy; 2025</p>

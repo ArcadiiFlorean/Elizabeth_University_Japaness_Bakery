@@ -1,39 +1,67 @@
 <?php
+session_start();
+
+// Include fișierul de configurare pentru conexiunea la baza de date
 include('includes/config.php');
 
-// Procesare formular de feedback
-if (isset($_POST['submit'])) {
+// Verifică conexiunea
+if (!$conn) {
+    die("Eroare la conexiunea cu baza de date: " . mysqli_connect_error());
+}
+
+// Verifică dacă formularul a fost trimis
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Preia datele din formular
     $name = $_POST['name'];
     $email = $_POST['email'];
     $feedback = $_POST['feedback'];
 
-    // Validare date
-    if (!empty($name) && !empty($email) && !empty($feedback)) {
-        // Salvare feedback în baza de date
-        $query = "INSERT INTO feedback (customer_name, customer_email, feedback_text, date_submitted) VALUES (?, ?, ?, NOW())";
+    // Pregătește interogarea
+    $query = "INSERT INTO feedback (name, email, feedback, submission_date) VALUES (?, ?, ?, NOW())";
+    $stmt = $conn->prepare($query);
 
-
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("sss", $name, $email, $feedback);
-
-        if ($stmt->execute()) {
-            $message = "Mersi pentru feedback";
-        } else {
-            $message = "Eroare la trimiterea feedback-ului. Vă rugăm încercați mai târziu.";
-        }
-    } else {
-        $message = "Vă rugăm completați toate câmpurile.";
+    // Verifică dacă interogarea a fost pregătită corect
+    if ($stmt === false) {
+        die('Eroare la pregătirea interogării: ' . $conn->error);
     }
+
+    // Leagă parametrii și execută interogarea
+    $stmt->bind_param("sss", $name, $email, $feedback);
+
+    // Verifică dacă execuția a avut succes
+    if ($stmt->execute()) {
+        // Setează mesajul de feedback în sesiune
+        $_SESSION['feedback_message'] = "Mulțumim pentru feedback-ul tău!";
+        // Salvează feedback-ul lăsat de utilizator în sesiune pentru a-l putea afișa pe pagina de confirmare
+        $_SESSION['feedback_content'] = $feedback;
+    } else {
+        // Setează mesajul de eroare în sesiune
+        $_SESSION['feedback_message'] = "A apărut o eroare la trimiterea feedback-ului.";
+    }
+
+    // Închide statement-ul
+    $stmt->close();
+
+    // Redirecționează înapoi la pagina de feedback
+    header('Location: feedback.php');
+    exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trimite Feedback</title>
+    <meta name="description" content="Sweet Treats - Japanese bakery with fresh products and customer feedback. Check out our daily menu!">
+    <meta property="og:title" content="Sweet Treats - Japanese Bakery">
+    <meta property="og:description" content="At Sweet Treats, we create delicious cakes and pastries made with love every day.">
+    <meta property="og:image" content="./img/logo.jpg">
+    <title>Sweet Treats - Homepage</title>
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/normallisation.css">
 </head>
 <body>
@@ -45,10 +73,18 @@ if (isset($_POST['submit'])) {
             <div class="navbar__menu">
    
             <ul class="navbar__items">
-                <li class="navbar__list"><a class="navbar__link" href="menu.php">Meniul Zilnic</a></li>
-                <li class="navbar__list"><a class="navbar__link" href="feedback.php">Trimite Feedback</a></li>
-                <li class="navbar__list"><a class="navbar__link" href="contact.php">Contact</a></li>
-                <li class="navbar__list"><a class="navbar__link" href="login.php">Autentificare</a></li>
+            <li class="navbar__list">
+                        <a class="navbar__link" href="index.php" aria-label="Daily menu">Home</a>
+                    </li>
+                    <li class="navbar__list">
+                    <a class="navbar__link" href="index.php#featured-products" aria-label="Daily menu">Daily Menu</a>
+
+                    </li>
+        
+                <li class="navbar__list"><a class="navbar__link" href="./contact.php">Contact</a></li>
+                <li class="navbar__list">
+                    <button class="back-button" onclick="window.history.back();" aria-label="Go back">Back</button>
+                </li>
             </ul>
             <div class="hamburger-menu" onclick="toggleMenu()">
       &#9776; <!-- Caracterul de meniu hamburger -->
@@ -58,6 +94,7 @@ if (isset($_POST['submit'])) {
     
 </header>
     <div class="feedback-form">
+
         <h1>Trimite Feedback</h1>
 
         <?php if (isset($message)): ?>

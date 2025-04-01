@@ -22,6 +22,24 @@ function validateImage($image) {
     return in_array($image['type'], $allowed_types);
 }
 
+// Salvarea modificărilor pentru setările de contact
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_contact']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+    $phone = htmlspecialchars($_POST['phone']);
+    $email = htmlspecialchars($_POST['email']);
+    $address = htmlspecialchars($_POST['address']);
+    $map_link = htmlspecialchars($_POST['map_link']);
+
+    $query = "UPDATE site_settings SET phone=?, email=?, address=?, map_link=? WHERE id=1";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssss", $phone, $email, $address, $map_link);
+    $stmt->execute();
+}
+
+// Preluarea datelor pentru afișare setări de contact
+$query = "SELECT * FROM site_settings WHERE id=1";
+$result = $conn->query($query);
+$settings = $result->fetch_assoc();
+
 // Adaugă produs
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
     $name = htmlspecialchars($_POST['name']);
@@ -115,80 +133,94 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 </head>
 <body>
 <header class="header">
-        <nav class="navbar">
-            <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
-                <img src="../img/logo.jpg" alt="Sweet Treats Logo" class="logo">
-            </a>
-            <div class="navbar__menu">
-                <ul class="navbar__items">
-                    <li class="navbar__list">
-                        <a class="navbar__link" href="#featured-products" aria-label="Daily menu">Daily Menu</a>
+    <nav class="navbar">
+        <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
+            <img src="../img/logo.jpg" alt="Sweet Treats Logo" class="logo">Admin
+        </a>
+        <div class="navbar__menu">
+            <ul class="navbar__items">
+                <li class="navbar__list">
+                    <a class="navbar__link" href="../index.php" aria-label="Daily menu">Home</a>
+                </li>
+                <li class="navbar__list">
+                    <a class="navbar__link" href="../index.php#featured-products" aria-label="Daily menu">Daily Menu</a>
+                </li>
+                <li class="navbar__list"><a class="navbar__link" href="admin_feedback.php">Vezi Feedback</a></li>
+                <li class="navbar__list">
+                    <a class="navbar__link" href="../contact.php" aria-label="Contact us">Contact</a>
+                </li>
+                <li class="navbar__list">
+                    <a class="navbar__link" href="../admin/logout.php" aria-label="Login">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
-                    </li>
-                    <li class="navbar__list">  <a href="./admin/admin_menu.php">Administrează produsele</a></li>
-                    <li class="navbar__list">
-                        <a class="navbar__link" href="feedback.php" aria-label="Submit feedback">Submit Feedback</a>
-                    </li>
-                    <li class="navbar__list">
-                        <a class="navbar__link" href="contact.php" aria-label="Contact us">Contact</a>
-                    </li>
-                    <li class="navbar__list">
-                        <!-- <a class="navbar__link" href="./admin/process_login.php" aria-label="Login">Login</a> -->
-                        <a class="navbar__link" href="./admin/login.php" aria-label="Login">Login</a>
-                    </li>
-                </ul>
-                <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
-                    &#9776; <!-- Hamburger menu character -->
-                </div>
-            </div>
-        </nav>
-    </header>
 <section class="section-dashboard">
     <div class="dashboard">
+        <h1>Admin - Setări Contact</h1>
+        <form action="dashboard.php" method="POST">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            <input type="hidden" name="update_contact" value="1">
+            
+            <label>Telefon:</label>
+            <input type="text" name="phone" value="<?php echo htmlspecialchars($settings['phone']); ?>" required><br>
 
-    
-    <h1>Admin - Meniu Produse</h1>
-    <h2>Adaugă un nou produs</h2>
-    <form action="admin_menu.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-        <input type="hidden" name="add" value="1">
-        <label>Nume produs:</label>
-        <input type="text" name="name" required><br>
-        <label>Descriere:</label>
-        <textarea name="description" required></textarea><br>
-        <label>Preț:</label>
-        <input type="number" name="price" step="0.01" required><br>
-        <label>Imagine:</label>
-        <input type="file" name="image"><br>
-        <input type="submit" value="Adaugă">
-    </form>
-    <h2>Produse existente</h2>
-    <table border="1">
-        <tr><th>ID</th><th>Nume</th><th>Descriere</th><th>Preț</th><th>Imagine</th><th>Acțiuni</th></tr>
-        <?php foreach ($products as $product): ?>
-            <tr>
-                <form action="dashboard.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                    <input type="hidden" name="update" value="1">
-                    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                    <td><?php echo $product['id']; ?></td>
-                    <td><input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>"></td>
-                    <td><textarea name="description"><?php echo htmlspecialchars($product['description']); ?></textarea></td>
-                    <td><input type="number" name="price" step="0.01" value="<?php echo $product['price']; ?>"> Lei</td>
-                    <td>
-                        <img src="<?php echo $product['image']; ?>" width="100"><br>
-                        <input type="file" name="image">
-                    </td>
-                    <td>
-                        <input type="submit" value="Salvează">
-                        <a href="dashboard.php?delete_id=<?php echo $product['id']; ?>" onclick="return confirm('Sigur ștergi?')">Șterge</a>
-                    </td>
-                </form>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+            <label>Email:</label>
+            <input type="email" name="email" value="<?php echo htmlspecialchars($settings['email']); ?>" required><br>
+
+            <label>Adresă:</label>
+            <input type="text" name="address" value="<?php echo htmlspecialchars($settings['address']); ?>" required><br>
+
+            <label>Link Google Maps:</label>
+            <input type="text" name="map_link" value="<?php echo htmlspecialchars($settings['map_link']); ?>" required><br>
+
+            <input type="submit" value="Salvează modificările">
+        </form>
+
+        <h1>Admin - Meniu Produse</h1>
+        <h2>Adaugă un nou produs</h2>
+        <form action="dashboard.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            <input type="hidden" name="add" value="1">
+            <label>Nume produs:</label>
+            <input type="text" name="name" required><br>
+            <label>Descriere:</label>
+            <textarea name="description" required></textarea><br>
+            <label>Preț:</label>
+            <input type="number" name="price" step="0.01" required><br>
+            <label>Imagine:</label>
+            <input type="file" name="image"><br>
+            <input type="submit" value="Adaugă">
+        </form>
+
+        <h2>Produse existente</h2>
+        <table border="1">
+            <tr><th>ID</th><th>Nume</th><th>Descriere</th><th>Preț</th><th>Imagine</th><th>Acțiuni</th></tr>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <form action="dashboard.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                        <input type="hidden" name="update" value="1">
+                        <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                        <td><?php echo $product['id']; ?></td>
+                        <td><input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>"></td>
+                        <td><textarea name="description"><?php echo htmlspecialchars($product['description']); ?></textarea></td>
+                        <td><input type="number" name="price" step="0.01" value="<?php echo $product['price']; ?>"> Lei</td>
+                        <td>
+                            <img src="<?php echo $product['image']; ?>" width="100"><br>
+                            <input type="file" name="image">
+                        </td>
+                        <td>
+                            <input type="submit" value="Salvează">
+                            <a href="dashboard.php?delete_id=<?php echo $product['id']; ?>" onclick="return confirm('Sigur ștergi?')">Șterge</a>
+                        </td>
+                    </form>
+                </tr>
+            <?php endforeach; ?>
+        </table>
     </div>
-
-    </section>
+</section>
 </body>
 </html>

@@ -111,6 +111,21 @@ padding-top: 150px;
 .dashboard{
   padding-top: 150px;
 }
+.header-admin{
+  background-color: rgb(136, 136, 136);
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0; /* Fixează header-ul în partea de sus */
+  left: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
+  right: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
+  width: 100%; /* Asigură-te că ocupă întreaga lățime a paginii */
+  z-index: 1000; /* Asigură-te că este deasupra altor elemente */
+}
+
+.admin_feedback{
+  padding-top: 150px;
+}
 .navbar__link::after {
   content: "";
   position: absolute;

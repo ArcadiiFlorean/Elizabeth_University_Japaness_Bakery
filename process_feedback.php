@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('includes/config.php');
 
 // Verifică dacă formularul a fost trimis
@@ -21,16 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Verifică dacă inserarea a avut succes
         if ($stmt->execute()) {
-            $message = "Mulțumim pentru feedback-ul dumneavoastră! Vom lua în considerare sugestiile și comentariile dumneavoastră.";
+            $_SESSION['feedback_message'] = "Mulțumim pentru feedback-ul dumneavoastră! Vom lua în considerare sugestiile și comentariile dumneavoastră.";
         } else {
-            $message = "A apărut o eroare. Vă rugăm încercați mai târziu.";
+            $_SESSION['feedback_message'] = "A apărut o eroare. Vă rugăm încercați mai târziu.";
         }
     } else {
-        $message = "Vă rugăm completați toate câmpurile.";
+        $_SESSION['feedback_message'] = "Vă rugăm completați toate câmpurile.";
     }
 } else {
-    $message = "Acces nepermis!";
+    $_SESSION['feedback_message'] = "Acces nepermis!";
 }
+
+// Redirecționează utilizatorul către pagina principală (index.php)
+
 
 ?>
 
