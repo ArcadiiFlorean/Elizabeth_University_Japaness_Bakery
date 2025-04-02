@@ -137,7 +137,7 @@ if (isset($_SESSION['feedback_message'])) {
 
         </div>
         <div class="about-image">
-            <img  class="about-image" src="./img/chef__contact.png" alt="About Us" />
+            <img  class="about-image" src="./img/chef__contact.png" loading="lazy" alt="About Us" />
         </div>
     </div>
 </section>

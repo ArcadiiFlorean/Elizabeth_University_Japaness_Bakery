@@ -63,30 +63,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </nav>
     </header>
     <section class="login-section">
-        <div class="container">
-            <div class="login-content">
-                 <h2>Autentificare Administrator</h2>
+    <div class="container">
+        <div class="login-content">
+            <h2 class="login-title">Autentificare Administrator</h2>
 
-     
-        <?php if (isset($error_message)): ?>
-            <div class="error"><?php echo $error_message; ?></div>
-        <?php endif; ?>
+            <?php if (isset($error_message)): ?>
+                <div class="error-message"><?php echo $error_message; ?></div>
+            <?php endif; ?>
 
-        <form action="login.php" method="POST">
-            <div class="form-group">
-                <label for="username">Nume de utilizator</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Parolă</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Autentificare</button>
-        </form>
+            <form action="login.php" method="POST" class="login-form">
+                <div class="form-group">
+                    <label for="username" class="form-label">Nume de utilizator</label>
+                    <input type="text" id="username" name="username" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Parolă</label>
+                    <input type="password" id="password" name="password" class="form-input" required>
+                </div>
+                <button type="submit" class="login-button">Autentificare</button>
+            </form>
         </div>
-            </div>
-            
-       
-    </section>
+    </div>
+</section>
 </body>
 </html>
