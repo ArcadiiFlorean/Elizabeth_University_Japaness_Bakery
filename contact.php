@@ -39,15 +39,21 @@ $settings = $result->fetch_assoc();
             
             <div class="contact-info-header">
                 <h1>Contactează-ne</h1>
-                <p>Ai întrebări? Completează formularul sau folosește datele de mai jos.</p>
+                <p>f you have any questions, please fill out the form or use the contact details.
+                </p>
            
 
             <div class="contact-info">
                 <p><strong>Telefon:</strong> <a href="tel:<?php echo htmlspecialchars($settings['phone']); ?>"><?php echo htmlspecialchars($settings['phone']); ?></a></p>
                 <p><strong>Email:</strong> <a href="mailto:<?php echo htmlspecialchars($settings['email']); ?>"><?php echo htmlspecialchars($settings['email']); ?></a></p>
                 <p><strong>Adresă:</strong> <?php echo htmlspecialchars($settings['address']); ?></p>
-                <p><strong>Ore de lucru:</strong> <?php echo htmlspecialchars($settings['work_hours']); ?></p> <!-- Adăugăm orele de lucru -->
-            </div>
+                <p><strong>Luni:</strong> <?php echo htmlspecialchars($settings['monday_hours']); ?></p>
+<p><strong>Marți:</strong> <?php echo htmlspecialchars($settings['tuesday_hours']); ?></p>
+<p><strong>Miercuri:</strong> <?php echo htmlspecialchars($settings['wednesday_hours']); ?></p>
+<p><strong>Joi:</strong> <?php echo htmlspecialchars($settings['thursday_hours']); ?></p>
+<p><strong>Vineri:</strong> <?php echo htmlspecialchars($settings['friday_hours']); ?></p>
+<p><strong>Sâmbătă:</strong> <?php echo htmlspecialchars($settings['saturday_hours']); ?></p>
+<p><strong>Duminică:</strong> <?php echo htmlspecialchars($settings['sunday_hours']); ?></p>
             <div class="contact-form">
                 <form method="POST" action="send_contact.php">
                     <label for="name">Nume:</label>
@@ -65,19 +71,33 @@ $settings = $result->fetch_assoc();
             </div>
            
              </div>
-    <img src="./img/chef__contact.png" alt="" class="contact-img">
+
         </div>
+        <img src="./img/Logo_inalt.png" alt="" class="contact-img">
     </div>
 </section>
 
+<footer class="footer">
+        <div class="footer-content">
 
-<section class="map-section">
+        
+
+        <p>Sweet Treats - Toate drepturile rezervate &copy; 1817</p>
+
+        </div>
+    
+    </footer>
+
+
+
+
+<!-- <section class="map-section">
     <div class="container">
         <h2>Ne găsești aici:</h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13623.867847647598!2d-1.1349863748231142!3d53.52110755410088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48790e85c178ab89%3A0xa0357f24c5532956!2sSouth%20Yorkshire%20Aircraft%20Museum!5e0!3m2!1sro!2suk!4v1742506444736!5m2!1sro!2suk"
             width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-</section>
+</section> -->
 
 
 

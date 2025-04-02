@@ -42,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_contact']) && 
 $query = "SELECT * FROM site_settings WHERE id=1";
 $result = $conn->query($query);
 $settings = $result->fetch_assoc();
+// $query = "SELECT work_hours FROM settings WHERE id = 1";
+// $result = mysqli_query($conn, $query);
+// $row = mysqli_fetch_assoc($result);
+// $settings['work_hours'] = $row['work_hours'];
 
 // Adaugă produs
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
@@ -184,7 +188,17 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
             <input type="submit" value="Salvează modificările">
         </form>
         </div>
-   
+        <form method="post" action="update_hours.php">
+        <form method="post" action="update_hours.php">
+    <label>Luni:</label> <input type="text" name="monday_hours" placeholder="Ex: 09:00 - 17:00">
+    <label>Marți:</label> <input type="text" name="tuesday_hours" placeholder="Ex: 09:00 - 17:00">
+    <label>Miercuri:</label> <input type="text" name="wednesday_hours" placeholder="Ex: 09:00 - 17:00">
+    <label>Joi:</label> <input type="text" name="thursday_hours" placeholder="Ex: 09:00 - 17:00">
+    <label>Vineri:</label> <input type="text" name="friday_hours" placeholder="Ex: 09:00 - 17:00">
+    <label>Sâmbătă:</label> <input type="text" name="saturday_hours" placeholder="Ex: 09:00 - 17:00">
+    <label>Duminică:</label> <input type="text" name="sunday_hours" placeholder="Ex: 09:00 - 17:00">
+    <button type="submit">Actualizează orele</button>
+</form>
     <div class="dashboard">
 
            <div class="admin_meniu">

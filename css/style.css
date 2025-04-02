@@ -17,9 +17,9 @@
 }
 
 .logo {
-  width: 66px;
-  height: 66px;
-  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  /* border-radius: 100%; */
 }
 
 /*experiment */
@@ -29,16 +29,29 @@
 
 /* Setări generale pentru stil japonez */
 body {
-  background-color: #f8f4e6; 
+  background-color: #f8f4e6;
   font-family: "Noto Serif JP", serif;
   color: #2c2c2c;
   margin: 0;
   padding: 0;
   /* background-image: url(../img/dragon.jpg);
-
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay; */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
 
 /* HEADER */
@@ -99,7 +112,7 @@ body {
 }
 
 /*header special*/
-.login-container {
+.login-section {
   padding-top: 150px;
 }
 
@@ -214,14 +227,15 @@ align-items: ; */
  
 }
 
-.footer {
-  width: 100%; /* Asigură că ocupă întreaga lățime a paginii */
-  background-color: #8c2727; /* Roșu tradițional japonez */
-  padding: 15px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative; /* Permite footer-ului să se așeze natural la baza paginii */
-  margin: 0; /* Îndepărtează marginea */
+
+footer {
+  background-color: #333;
   color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-social{
@@ -437,7 +451,8 @@ justify-content: space-around;
 
 /*CONTACTS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .contact-section {
-  padding-top: 150px;
+  padding-top: 250px;
+  padding-bottom: 150px;
   /* background: linear-gradient(135deg, rgba(255, 165, 165, 0.8), rgba(246, 240, 232, 0.7));  */
 }
 
@@ -445,22 +460,23 @@ justify-content: space-around;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* background-image: linear-gradient(
-    135deg,
-    rgba(172, 172, 172, 0.8),
-    rgba(255, 182, 193, 0.7)
-  );  */
+/* gap: 120px; */
   background-size: cover;
   background-position: center;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  background-image: url(../img/papirus.png);
+  background-size: 100% 100%; /* Lățime 100% și înălțime 200% (extinsă pe verticală) */
+  background-repeat: no-repeat;
+
 }
 .contact-img {
   height: 100%;
   width: 550px;
-  border-radius: 25px;
+  /* border-radius: 100%; */
+  margin-right: 62px;
+  filter: sepia(30%) contrast(90%);
 }
 .contact-info {
   display: flex;
@@ -470,6 +486,14 @@ justify-content: space-around;
 .contact-info-header {
   border-radius: 5px; /* Colțuri rotunjite */
   padding: 10px;
+  /* background-image: url(../img/papirus.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay; */
+   background-color: transparent;
+   text-align: center;
+   margin-right: 45px;
+
 }
 
 .contact-info-header h1 {
@@ -478,13 +502,15 @@ justify-content: space-around;
 
 .contact-info-header p {
   font-size: 1.25rem;
+
+
 }
 
 .contact-form {
-  background-color: rgba(255, 255, 255, 0.9);
+background-color: transparent;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -500,13 +526,15 @@ justify-content: space-around;
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid;
+  border-image: linear-gradient(to right, rgb(242 185 0), rgb(243, 237, 145)) 1;
   border-radius: 4px;
   margin-bottom: 20px;
   box-sizing: border-box;
+  background-color: transparent;
 }
 
 .contact-form button {

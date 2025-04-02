@@ -62,11 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </nav>
     </header>
-    <section class="login-container">
+    <section class="login-section">
         <div class="container">
-             <h2>Autentificare Administrator</h2>
+            <div class="login-content">
+                 <h2>Autentificare Administrator</h2>
 
-        <!-- Afișăm un mesaj de eroare dacă autentificarea nu a reușit -->
+     
         <?php if (isset($error_message)): ?>
             <div class="error"><?php echo $error_message; ?></div>
         <?php endif; ?>
@@ -83,6 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit">Autentificare</button>
         </form>
         </div>
+            </div>
+            
        
     </section>
 </body>
