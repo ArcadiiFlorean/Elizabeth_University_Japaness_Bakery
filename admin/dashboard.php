@@ -118,6 +118,7 @@ $result = $conn->query($query);
 $products = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -208,11 +209,11 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 
 <div class="admin_img">
 
-<form action="upload_main_image.php" method="POST" enctype="multipart/form-data">
+<!-- <form action="upload_main_image.php" method="POST" enctype="multipart/form-data">
     <label for="main_image">Upload New Main Image:</label>
     <input type="file" name="main_image" id="main_image" required>
     <button type="submit" name="upload">Upload</button>
-</form>
+</form> -->
 
 </div>
 

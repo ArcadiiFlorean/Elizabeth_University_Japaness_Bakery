@@ -105,8 +105,8 @@ if (isset($_SESSION['feedback_message'])) {
         <?php endif; ?>
 
         <section id="featured-products" class="main__section main__section--featured-products">
-            <h3 class="feature-product-title">Menu of the Day – Heavenly Bakery Delights 🍰</h3>
-            <p class="feature-product-description">Fresh and delicious treats, made daily with love!</p>
+            <h3 class="feature-product-title">Menu of the Day – Heavenly Bakery Delights </h3>
+            <p class="feature-product-description">新鮮で美味しいお菓子、毎日愛情を込めて作っています！</p>
             <div class="menu_container">
                 <?php foreach ($menu_items as $item): ?>
                     <div class="menu-item">
@@ -126,14 +126,14 @@ if (isset($_SESSION['feedback_message'])) {
 
     
         <div class="about-content">
-            <h2>The Legend of Our Bakery</h2>
-          <p>Long ago, in the misty mountains of Japan, there was a small village where the art of baking was passed down by the gods themselves. The villagers believed that the divine spirit of the mountain, known as Kashi-no-Kami, bestowed upon them the sacred knowledge of creating bread and sweets that carried the essence of the earth, the sky, and the eternal seasons. It was said that those who tasted the bread from this village would be blessed with good fortune and a long, prosperous life.</p>
+            <h2>The Legend</h2>
+            <p>Într-un sat mic ascuns în munții Japoniei, oamenii credeau că spiritul muntelui, Kashi-no-Kami, le-a dăruit cunoștințele sacre ale coacerii pâinii și dulciurilor. Aceste creații divine erau pline cu esența pământului, cerului și anotimpurilor eterne, iar cei care le gustau erau binecuvântați cu noroc și o viață lungă și prosperă.</p>
 
-<p>As the years passed, the villagers honed their craft, creating delicate pastries that were infused with the flavors of the land—the rich matcha from the deep green tea fields, the sweet red beans harvested from sacred valleys, and the golden rice grown under the watchful eye of the gods. The secret recipes were passed down through the generations, but only a few were entrusted with the ancient knowledge. It was said that the bakers who could truly understand the spirit of Kashi-no-Kami were able to bake with a divine touch, crafting pastries so perfect that they seemed to glow with an ethereal light.</p>
+<p>Pe măsură ce timpul trecea, meșteșugul coacerii s-a perfecționat, iar pâinile și prăjiturile reflectau aroma ingredientelor sfinte din jurul muntelui — matcha din câmpiile verzi de ceai, fasolea roșie din văile sacre și orezul auriu crescut sub privirea atentă a zeilor. Doar câțiva aleși aveau acces la rețetele ancestrale, iar aceștia coceau cu o atingere divină, creând produse de o frumusețe etereală, care păreau să strălucească.</p>
 
-<p>One fateful day, a young baker named Akihiko, whose family had served the village as bakers for centuries, discovered an ancient scroll hidden deep within the sacred temple of the mountain. The scroll, written in a forgotten language, contained a recipe so complex and mysterious that it was said to summon the spirits of the harvest. Akihiko, guided by the whispers of the mountain wind and the wisdom of his ancestors, began to experiment with the recipe, blending traditional ingredients with a touch of magic. The result was a pastry unlike any other, so delicious that it caused those who ate it to experience vivid dreams of the mountain gods themselves.</p>
+<p>Un tânăr brutar, Akihiko, care provenea dintr-o familie de brutari cu tradiție veche de secole, a descoperit un vechi pergament într-un templu sacru al muntelui. Pergamentul, scris într-o limbă uitată, conținea o rețetă misterioasă care putea chema spiritele recoltei. Inspirat de viziuni și ghidat de înțelepciunea strămoșilor săi, Akihiko a experimentat cu rețeta, adăugând ingrediente tradiționale și un strop de magie. Astfel, a creat o prăjitură atât de delicioasă încât cei care o gustau aveau viziuni ale zeilor muntelui și erau transportați într-o lume de vis.</p>
 
-<p>Over time, Akihiko's bakery became known far and wide, attracting travelers from across the land who sought the mystical flavors of his creations. Some believed that the bakery held the key to immortality, others that it was a gateway to the spirit world. The legacy of that ancient bakery, shrouded in mystery, was passed down through the generations, each baker adding their own twist to the divine recipes. Now, in the heart of the bustling city, our bakery continues this tradition, bringing the ancient wisdom and magical flavors of Japan's spiritual past into every loaf, every pastry, and every bite. We honor the gods, the earth, and the sky in every creation we make, ensuring that the magic of our bakery lives on for generations to come.</p>
+<p>În scurt timp, cofetăria lui Akihiko a devenit celebră, atrăgând călători din toate colțurile lumii care veneau pentru a gusta din creațiile sale magice. Mulți credeau că rețetele aveau puterea de a oferi nemurirea, alții că ele deschideau o poartă către lumea spiritelor. Astăzi, tradiția continuă într-o cofetărie din inima unui oraș agitat, aducând magia și înțelepciunea străveche a Japoniei în fiecare pâine, prăjitură și mușcătură. Cu fiecare creație, păstrăm vie legătura cu zeii, pământul și cerul, asigurându-ne că magia noastră va dăinui pentru generațiile viitoare.</p>
 
         </div>
         <div class="about-image">
@@ -192,10 +192,22 @@ if (isset($_SESSION['feedback_message'])) {
 
         
 
-        <p>Sweet Treats - Toate drepturile rezervate &copy; 2025</p>
+        <p>Sweet Treats - Toate drepturile rezervate &copy; 1817</p>
 
         </div>
     
     </footer>
+
+
+    <div id="menuModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h4 id="modalTitle"></h4>
+        <p id="modalDescription"></p>
+        <p id="modalPrice"></p>
+        <img id="modalImage" src="" alt="">
+    </div>
+</div>
+<script src="./script/script.js"></script>
 </body>
 </html>

@@ -149,8 +149,8 @@ if (isset($_GET['edit'])) {
             <label for="item_name">Numele produsului:</label>
             <input type="text" id="item_name" name="item_name" value="<?php echo isset($item) ? htmlspecialchars($item['item_name']) : ''; ?>" required><br><br>
 
-            <label for="description">Descriere:</label>
-            <textarea id="description" name="description" required><?php echo isset($item) ? htmlspecialchars($item['description']) : ''; ?></textarea><br><br>
+            <label for="description">Descriere detaliată:</label>
+<textarea id="description" name="description" rows="8" required><?php echo isset($item) ? htmlspecialchars($item['description']) : ''; ?></textarea><br><br>
 
             <label for="price">Preț:</label>
             <input type="number" id="price" name="price" value="<?php echo isset($item) ? htmlspecialchars($item['price']) : ''; ?>" step="0.01" required><br><br>

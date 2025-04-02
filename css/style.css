@@ -29,11 +29,16 @@
 
 /* Setări generale pentru stil japonez */
 body {
-  background-color: #f8f4e6; /* Fundal inspirat de hârtia washi */
+  background-color: #f8f4e6; 
   font-family: "Noto Serif JP", serif;
   color: #2c2c2c;
   margin: 0;
   padding: 0;
+  /* background-image: url(../img/dragon.jpg);
+
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay; */
 }
 
 /* HEADER */
@@ -245,7 +250,7 @@ justify-content: space-around;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: 'Allura', cursive;
   font-size: 2.5rem;
   color: #8c2727;
 }
@@ -271,6 +276,7 @@ justify-content: space-around;
   flex-direction: column;
   align-items: center;
   gap: 25px;
+  background-color: #f8f4e6;
 }
 
 .fearure-img {
@@ -347,22 +353,32 @@ justify-content: space-around;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding: 20px;
   margin: 15px;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   border-radius: 8px;
   width: 300px;
   box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
+  background-image: url(../img/papirus.png);
+  background-size: 100% 100%; /* Lățime 100% și înălțime 200% (extinsă pe verticală) */
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
 }
 
 /* Efect la hover pentru fiecare item */
+
 .menu-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  transform: scale(1.05); /* Mărește elementul la hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adaugă umbră la hover */
+  cursor: pointer; /* Schimbă cursorul pentru un efect interactiv */
 }
+
+.menu-item:hover .menu_img {
+  filter: grayscale(0%); /* Revine la culoare la hover */
+}
+
 
 /* Stil pentru titlul itemului */
 .menu-item h4 {
@@ -394,8 +410,9 @@ justify-content: space-around;
   object-fit: cover; /* Asigură că imaginea umple spațiul fără a fi distorsionată */
   border-radius: 8px; /* Colțuri rotunjite pentru imagine */
   margin-top: auto; /* Adaugă spațiu între descriere și imagine */
+  filter: grayscale(100%); /* Transformă imaginea în alb-negru */
+  transition: filter 0.3s ease, transform 0.3s ease; /* Efecte de tranziție pentru hover */
 }
-
 /* Responsivitate */
 @media (max-width: 768px) {
   .menu-item {
@@ -429,11 +446,11 @@ justify-content: space-around;
   align-items: center;
   justify-content: space-between;
 
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     135deg,
     rgba(172, 172, 172, 0.8),
     rgba(255, 182, 193, 0.7)
-  ); /* Gradient pentru fundalul elementelor */
+  );  */
   background-size: cover;
   background-position: center;
   padding: 40px;
@@ -509,7 +526,12 @@ justify-content: space-around;
 /*ABOUTUS///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .section-about {
   padding: 150px 0;
-  background-color: #f4f4f4; /* Fundal gri deschis */
+  /* background-color: #f4f4f4;  */
+  /* background-image: url(../img/dragon.jpg); */
+
+  /* background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay; */
 }
 
 .container {
@@ -520,18 +542,34 @@ justify-content: space-around;
   align-items: center;
   gap: 30px;
 }
+/*//////////////////////////////////////////////////////////////////*/
 
+
+/* Styling for the About Section */
+
+/* Subtle animation for fade-in effect */
+
+
+/*/////////////////////////////////////////////////////////////////*/
 .about-content {
   flex: 1;
   padding: 20px;
-  background-image: url();
+  background-image: url(../img/papirus.png);
+  background-size: 100% 100%; /* Lățime 100% și înălțime 200% (extinsă pe verticală) */
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color:#f8f4e6;
+  padding-bottom: 25px;
 }
+
 
 .about-content h2 {
   font-size: 32px;
   color: #333;
   margin-bottom: 15px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Dancing Script', cursive;
+
+  text-align: center;
 }
 
 .about-content p {
@@ -539,7 +577,11 @@ justify-content: space-around;
   color: #666;
   line-height: 1.6;
   margin-bottom: 15px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Dancing Script', cursive;
+
+  max-width: 557px;
+margin-left: 40px;
+
 }
 
 .about-image {
@@ -556,7 +598,7 @@ justify-content: space-around;
 /*SOCIAL SECTION/////////////////////////////////////////////////////////////////////////////////////////////////*/
 .social-section {
   padding: 20px;
-  background-color: #333; /* Culoare fundal închis */
+  /* background-color: #333;  */
   text-align: center;
   color: white;
 }
@@ -573,12 +615,16 @@ justify-content: space-around;
 .content-social a {
   margin: 10px;
   display: inline-block;
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
-
+.content-social a i {
+  font-size: 26px;
+}
 .social-text {
+  color: rgb(0, 0, 0);
   margin-top: 15px;
+  max-width: 550px;
 }
 
 .social-share button {
@@ -592,4 +638,39 @@ justify-content: space-around;
 
 .social-share button:hover {
   background-color: #45a049; /* Schimbă culoarea la hover */
+}
+/*MODAL//////////////////////////////////////////////////////////////////////*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 60%;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 500px;
+  height: 500px;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
 }
