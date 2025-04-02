@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               
             </a>
             <div class="navbar__menu">
+            <div class="clock" id="clock">Loading...</div>
                 <ul class="navbar__items">
                 <li class="navbar__list">
                         <a class="navbar__link" href="../index.php" aria-label="Daily menu">Home</a>
@@ -64,7 +65,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </header>
     <section class="login-section">
     <div class="container">
+
+
+  
+     
+  
+
         <div class="login-content">
+       
             <h2 class="login-title">Autentificare Administrator</h2>
 
             <?php if (isset($error_message)): ?>
@@ -85,5 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 </section>
+<script src="../script/script.js"></script>
 </body>
 </html>

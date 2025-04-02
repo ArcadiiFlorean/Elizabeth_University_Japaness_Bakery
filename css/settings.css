@@ -32,3 +32,11 @@ h1{
     margin: 0 auto;
 
   }
+
+  .clock {
+    font-size: 28px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: rgb(214, 214, 214);
+
+}
