@@ -52,3 +52,4 @@ setInterval(updateClock, 1000);
 
 // Initialize the clock immediately
 updateClock();
+

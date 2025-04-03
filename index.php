@@ -127,33 +127,7 @@ if (isset($_SESSION['feedback_message'])) {
 <div class="legend-container">
         <div class="legend-content">
             <h2>The Legend</h2>
-            <p>
-                Într-un sat mic ascuns în munții Japoniei, oamenii credeau că spiritul muntelui, Kashi-no-Kami,
-                le-a dăruit cunoștințele sacre ale coacerii pâinii și dulciurilor. Aceste creații divine erau pline
-                cu esența pământului, cerului și anotimpurilor eterne, iar cei care le gustau erau binecuvântați
-                cu noroc și o viață lungă și prosperă.
-            </p>
-            <p>
-                Pe măsură ce timpul trecea, meșteșugul coacerii s-a perfecționat, iar pâinile și prăjiturile reflectau
-                aroma ingredientelor sfinte din jurul muntelui — matcha din câmpiile verzi de ceai, fasolea roșie din
-                văile sacre și orezul auriu crescut sub privirea atentă a zeilor. Doar câțiva aleși aveau acces la
-                rețetele ancestrale, iar aceștia coceau cu o atingere divină, creând produse de o frumusețe etereală,
-                care păreau să strălucească.
-            </p>
-            <p>
-                Un tânăr brutar, Akihiko, care provenea dintr-o familie de brutari cu tradiție veche de secole, a descoperit
-                un vechi pergament într-un templu sacru al muntelui. Pergamentul, scris într-o limbă uitată, conținea o rețetă
-                misterioasă care putea chema spiritele recoltei. Inspirat de viziuni și ghidat de înțelepciunea strămoșilor săi,
-                Akihiko a experimentat cu rețeta, adăugând ingrediente tradiționale și un strop de magie. Astfel, a creat o prăjitură
-                atât de delicioasă încât cei care o gustau aveau viziuni ale zeilor muntelui și erau transportați într-o lume de vis.
-            </p>
-            <p>
-                În scurt timp, cofetăria lui Akihiko a devenit celebră, atrăgând călători din toate colțurile lumii care veneau
-                pentru a gusta din creațiile sale magice. Mulți credeau că rețetele aveau puterea de a oferi nemurirea, alții că
-                ele deschideau o poartă către lumea spiritelor. Astăzi, tradiția continuă într-o cofetărie din inima unui oraș agitat,
-                aducând magia și înțelepciunea străveche a Japoniei în fiecare pâine, prăjitură și mușcătură. Cu fiecare creație,
-                păstrăm vie legătura cu zeii, pământul și cerul, asigurându-ne că magia noastră va dăinui pentru generațiile viitoare.
-            </p>
+            <p> In a small village hidden in the mountains of Japan, the people believed that the spirit of the mountain, Kashi-no-Kami, had gifted them the sacred knowledge of baking bread and sweets. These divine creations were filled with the essence of the earth, sky, and eternal seasons, and those who tasted them were blessed with luck and a long, prosperous life. </p> <p> As time passed, the craft of baking was perfected, and the breads and cakes reflected the aroma of the sacred ingredients from around the mountain — matcha from the green tea fields, red beans from the sacred valleys, and golden rice grown under the watchful eyes of the gods. Only a few chosen ones had access to the ancestral recipes, and they baked with a divine touch, creating products of ethereal beauty that seemed to glow. </p> <p> A young baker, Akihiko, who came from a family of bakers with a centuries-old tradition, discovered an ancient scroll in a sacred temple of the mountain. The scroll, written in a forgotten language, contained a mysterious recipe that could summon the spirits of the harvest. Inspired by visions and guided by the wisdom of his ancestors, Akihiko experimented with the recipe, adding traditional ingredients and a touch of magic. In this way, he created a cake so delicious that those who tasted it had visions of the mountain gods and were transported into a dreamlike world. </p> <p> Soon, Akihiko's pastry shop became famous, attracting travelers from all corners of the world who came to taste his magical creations. Many believed the recipes had the power to grant immortality, while others thought they opened a gateway to the spirit world. Today, the tradition continues in a pastry shop in the heart of a bustling city, bringing the magic and ancient wisdom of Japan into every loaf of bread, cake, and bite. With each creation, we keep the connection with the gods, the earth, and the sky alive, ensuring that our magic will endure for future generations. </p>
         </div>
         <div class="legend-image">
             <img class="about-image" src="./img/chef__contact.png" loading="lazy" alt="About Us" />
@@ -191,13 +165,14 @@ if (isset($_SESSION['feedback_message'])) {
                     </p>
                 </div>
                 <div class="social-share">
-                    <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">
-                        <span>Partajează pe Facebook</span>
-                    </button>
-                    <button onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">
-                        <span>Partajează pe Twitter</span>
-                    </button>
-                </div>
+    <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">
+        <span>Share on Facebook</span>
+    </button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">
+        <span>Share on Twitter</span>
+    </button>
+</div>
+
             </div>
         </div>
     </div>

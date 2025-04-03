@@ -7,9 +7,9 @@
 } */
 
 
-h1{
+/* h1{
     color: red;
-}
+} */
 
 .color{
     color: rebeccapurple;
@@ -35,6 +35,30 @@ h1{
     text-align: center;
     color: rgb(214, 214, 214);
 
+}
+
+.back-button {
+  background-color: #f0e6d2; /* Soft beige, inspired by traditional Japanese paper (washi) */
+  color: #3a3a3a; /* Dark grey, a neutral tone */
+  font-family: 'Yu Gothic', 'Meiryo', sans-serif; /* Elegant Japanese-inspired fonts */
+  border: 2px solid #c58c43; /* Gold/brown border, reminiscent of traditional Japanese details */
+  padding: 10px 20px;
+  border-radius: 8px; /* Rounded corners, inspired by soft, organic shapes */
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #c58c43; /* Gold color on hover */
+  color: #ffffff; /* White text on hover */
+  transform: translateY(-3px); /* Slight lift on hover for a subtle 3D effect */
+}
+
+.back-button:focus {
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 0 0 5px 2px rgba(197, 140, 67, 0.7); /* Soft glow for focus */
 }
 
 /*experiment produse existente*/

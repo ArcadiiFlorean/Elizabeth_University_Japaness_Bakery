@@ -68,7 +68,6 @@ body {
   z-index: 1000; /* Asigură-te că este deasupra altor elemente */
 }
 
-
 /* LOGO */
 .navbar__logo {
   font-size: 24px;
@@ -114,10 +113,9 @@ body {
   padding-top: 150px;
 }
 
-.admin-products-area{
+.admin-products-area {
   padding-top: 150px;
 }
-
 
 .header-admin {
   background-color: rgb(136, 136, 136);
@@ -437,12 +435,10 @@ footer {
 .contact-section {
   padding-top: 250px;
   padding-bottom: 150px;
-  background: linear-gradient(135deg, rgba(255, 165, 165, 0.8), rgba(246, 240, 232, 0.7)); 
-  background-image: url(../img/Logo_2.png);
+  /* background: linear-gradient(135deg, rgba(255, 165, 165, 0.8), rgba(246, 240, 232, 0.7));  */
+  background-image: url(../img/contact_img2.jpg);
   background-repeat: no-repeat;
-  background-size: contain
-  ;
-
+  background-size: cover;
 }
 
 .contact-info-content {
@@ -451,24 +447,25 @@ footer {
   justify-content: space-between;
   padding: 40px;
   border-radius: 10px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent */
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  
-  /* Adaugă un border subtil */
 
+  /* Adaugă efect de blur pe fundal */
+  backdrop-filter: blur(10px); /* 10px de blur */
+  -webkit-backdrop-filter: blur(10px); /* Suport pentru Safari */
 
   /* Adaugă o umbră pentru un efect 3D */
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-img {
-  height: 100%;
-  width: 550px;
-
-  margin-right: 62px;
-  filter: sepia(30%) contrast(90%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow with some offset and blur */
+  border-radius: 50%; /* For a circular image */
+  height: auto; /* Keeps the aspect ratio intact */
+  width: 600px; /* Fixed width */
 }
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -486,7 +483,6 @@ footer {
 .contact-info-header h1 {
   font-size: 2rem;
 }
-
 
 .contact-form {
   background-color: transparent;
@@ -533,10 +529,20 @@ footer {
 .contact-form button:hover {
   background-color: #b3000d; /* Roșu închis la hover */
 }
+
+.map-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 62px;
+  padding-bottom: 120px;
+}
+
 /*ABOUTUS///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .section-legend {
   padding: 150px 0;
-
 }
 
 .legend-container {
@@ -549,13 +555,12 @@ footer {
 }
 /*//////////////////////////////////////////////////////////////////*/
 
-
 /*/////////////////////////////////////////////////////////////////*/
 .legend-content {
   flex: 1;
   padding: 20px;
   background-image: url(../img/papirus.png);
-  background-size: 100% 100%; 
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   background-color: #f8f4e6;
@@ -596,19 +601,14 @@ footer {
 /*SOCIAL SECTION/////////////////////////////////////////////////////////////////////////////////////////////////*/
 .social-section {
   padding: 20px;
-
- 
-  
 }
 
-
-.social-content{
+.social-content {
   justify-content: space-between;
   align-items: center;
-  display: flex
-;
+  display: flex;
 }
-.social-img img{
+.social-img img {
   border-radius: 25px;
 }
 .social-container {
@@ -632,13 +632,25 @@ footer {
 }
 
 .social-share button {
-  background-color: #4caf50; /* Buton verde */
-  border: none;
-  color: white;
-  padding: 10px 20px;
+  background-color: #f9c6c3; /* Roz pal, delicat */
+  border: 1px solid #f0e4e4; /* Bordură subțire, nu prea vizibilă */
+  color: #333; /* Text în gri închis pentru un contrast delicat */
+  padding: 12px 24px;
   margin: 5px;
   cursor: pointer;
+  font-family: 'Noto Serif JP', serif; /* Font elegant japonez */
+  border-radius: 25px; /* Margini rotunjite, fine */
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ușor umbra pentru un efect subtil */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+.social-share button:hover {
+  background-color: #f5b1ab; /* Roz mai intens la hover */
+  transform: scale(1.05); /* Ușor efect de mărire la hover */
+}
+
 
 .social-share button:hover {
   background-color: #45a049; /* Schimbă culoarea la hover */
@@ -666,7 +678,6 @@ footer {
   background: #f5f5f5;
 }
 
-
 .login-content {
   display: flex;
   background: white;
@@ -683,7 +694,6 @@ footer {
   top: 200px; /* Ajustează pentru a o muta mai jos */
   right: 200px; /* Ajustează pentru a o muta mai la stânga */
 }
-
 
 .login-title {
   color: #b30000;
@@ -783,17 +793,359 @@ footer {
   cursor: pointer;
 }
 /*ADMIN////////////////////////////////////////////////////////////////////////////////////////////////*/
-.admin-panel{
+/* .admin-panel{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 150px;
+ margin-top: 150px;
   
+} */
+
+/*Admin-meniu products*/
+/*admin-panel*/
+
+.admin_meniu {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(255, 250, 240, 0.9); /* Fundal inspirat de hârtia de orez */
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+  border: 2px solid #a67b5b; /* Inspirat de lemnul natural */
+  font-family: "Noto Serif JP", serif;
 }
 
-.admin-title{
-  padding-top: 120px;
+.admin_meniu label {
+  display: block;
+  font-weight: bold;
+  color: #5a3e36;
+  margin-top: 10px;
+}
+
+.admin_meniu input,
+.admin_meniu textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #a67b5b;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: "Noto Serif JP", serif;
+}
+
+.admin_meniu textarea {
+  height: 80px;
+}
+
+.admin_meniu input[type="submit"] {
+  background: #b53b3b;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.admin_meniu input[type="submit"]:hover {
+  background: #7d2626;
+}
+
+/*Admin/settings*/
+
+/*admin-panel*/
+
+/* 
+
+
+.admin_settings {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 25px;
+  background: rgba(255, 250, 240, 0.95); 
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #a67b5b; 
+  font-family: 'Noto Serif JP', serif;
+  text-align: center;
+}
+
+.admin_settings label {
+  display: block;
+  font-weight: bold;
+  color: #5a3e36;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.admin_settings input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #a67b5b;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: 'Noto Serif JP', serif;
+}
+
+.admin_settings input[type="submit"] {
+  background: #b53b3b;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 15px;
+}
+
+.admin_settings input[type="submit"]:hover {
+  background: #7d2626;
+} */
+
+/*admin-panel*/
+.admin-panel {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  margin: 150px auto;
+  padding: 30px;
+  background: rgba(255, 250, 240, 0.95); /* Hârtie de orez */
+  border-radius: 15px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  border: 3px solid #a67b5b; /* Lemn tradițional japonez */
+  font-family: "Noto Serif JP", serif;
+}
+
+.admin_meniu,
+.admin_settings,
+.admin-hours {
+  width: 350px;
+  height: 590px;
+
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.admin-panel label {
+  display: block;
+  font-weight: bold;
+  color: #5a3e36;
+  margin-top: 10px;
+}
+
+.admin-panel input,
+.admin-panel textarea {
+  width: 93%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #a67b5b;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: "Noto Serif JP", serif;
+}
+
+.admin-panel button,
+.admin-panel input[type="submit"] {
+  background: #b53b3b;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.admin-panel button:hover,
+.admin-panel input[type="submit"]:hover {
+  background: #7d2626;
+}
+
+/*Admin-houres*/
+.admin-hours {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 25px;
+  background: rgba(255, 250, 240, 0.95); /* Inspirat de hârtia de orez */
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #a67b5b; /* Maro inspirat de lemnul tradițional japonez */
+  font-family: "Noto Serif JP", serif;
+  text-align: center;
+}
+
+.admin-hours label {
+  display: block;
+  font-weight: bold;
+  color: #5a3e36;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.admin-hours input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #a67b5b;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: "Noto Serif JP", serif;
+}
+
+.admin-hours button {
+  background: #b53b3b; /* Roșu tradițional japonez */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.admin-hours button:hover {
+  background: #7d2626;
+}
+/*existing products */
+
+/* General styling for the admin section */
+.admin-products-existing {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(
+    255,
+    250,
+    240,
+    0.95
+  ); /* Soft, rice-paper inspired background */
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #a67b5b; /* Traditional wood-inspired brown border */
+  font-family: "Noto Serif JP", serif;
+  text-align: center;
+}
+
+.admin-products-existing h2 {
+  color: #5a3e36;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Styling for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #5a3e36;
+  font-weight: bold;
+}
+
+/* Form element styling inside table */
+.admin-products-existing input[type="text"],
+.admin-products-existing textarea,
+.admin-products-existing input[type="number"],
+.admin-products-existing input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #a67b5b;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: "Noto Serif JP", serif;
+  box-sizing: border-box;
+}
+
+.admin-products-existing textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.admin-products-existing input[type="submit"] {
+  background: #b53b3b; /* Traditional Japanese red */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.admin-products-existing input[type="submit"]:hover {
+  background: #7d2626; /* Darker red on hover */
+}
+
+/* Delete link styling */
+.admin-products-existing a {
+  color: #ff6347;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.admin-products-existing a:hover {
+  color: #e53e3e;
+}
+
+/* Styling for images */
+.admin-products-existing img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Styling for input group alignment */
+td {
+  vertical-align: middle;
+}
+
+/* Additional spacing between form elements for better readability */
+.admin-products-existing input[type="text"],
+.admin-products-existing input[type="number"],
+.admin-products-existing textarea,
+.admin-products-existing input[type="file"] {
+  margin-bottom: 10px;
+}
+
+/* Extra styling for the file input field */
+.admin-products-existing input[type="file"] {
+  padding: 8px;
+  margin-top: 10px;
 }

@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <header class="header-admin">
         <nav class="navbar">
             <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">  
-                <img src="../img/logo.jpg" alt="Sweet Treats Logo" class="logo" > Admin
+                <img src="../img/Logo_2.png" alt="Sweet Treats Logo" class="logo" > 
               
             </a>
             <div class="navbar__menu">
@@ -67,27 +67,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </header>
     <section class="login-section">
     <div class="container">
-   
-            <div class="login-content">
-       
-       <h2 class="login-title">Autentificare Administrator</h2>
+    <div class="login-content">
+        <h2 class="login-title">Administrator Login</h2>
 
-       <?php if (isset($error_message)): ?>
-           <div class="error-message"><?php echo $error_message; ?></div>
-       <?php endif; ?>
+        <?php if (isset($error_message)): ?>
+            <div class="error-message"><?php echo $error_message; ?></div>
+        <?php endif; ?>
 
-       <form action="login.php" method="POST" class="login-form">
-           <div class="form-group">
-               <label for="username" class="form-label">Nume de utilizator</label>
-               <input type="text" id="username" name="username" class="form-input" required>
-           </div>
-           <div class="form-group">
-               <label for="password" class="form-label">Parolă</label>
-               <input type="password" id="password" name="password" class="form-input" required>
-           </div>
-           <button type="submit" class="login-button">Autentificare</button>
-       </form>
-   </div>
+        <form action="login.php" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+</div>
+
   
 
     
