@@ -143,7 +143,7 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 <header class="header-admin">
     <nav class="navbar">
         <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
-            <img src="../img/logo.jpg" alt="Sweet Treats Logo" class="logo">Admin
+            <img src="../img/Logo_2.png" alt="Sweet Treats Logo" class="logo">
         </a>
         <div class="navbar__menu">
             <ul class="navbar__items">
