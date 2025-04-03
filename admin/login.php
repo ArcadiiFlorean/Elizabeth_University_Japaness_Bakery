@@ -40,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               
             </a>
             <div class="navbar__menu">
+                
+       
             <div class="clock" id="clock">Loading...</div>
                 <ul class="navbar__items">
                 <li class="navbar__list">
@@ -65,32 +67,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </header>
     <section class="login-section">
     <div class="container">
+   
+            <div class="login-content">
+       
+       <h2 class="login-title">Autentificare Administrator</h2>
 
+       <?php if (isset($error_message)): ?>
+           <div class="error-message"><?php echo $error_message; ?></div>
+       <?php endif; ?>
 
+       <form action="login.php" method="POST" class="login-form">
+           <div class="form-group">
+               <label for="username" class="form-label">Nume de utilizator</label>
+               <input type="text" id="username" name="username" class="form-input" required>
+           </div>
+           <div class="form-group">
+               <label for="password" class="form-label">Parolă</label>
+               <input type="password" id="password" name="password" class="form-input" required>
+           </div>
+           <button type="submit" class="login-button">Autentificare</button>
+       </form>
+   </div>
+  
+
+    
   
      
   
 
-        <div class="login-content">
-       
-            <h2 class="login-title">Autentificare Administrator</h2>
-
-            <?php if (isset($error_message)): ?>
-                <div class="error-message"><?php echo $error_message; ?></div>
-            <?php endif; ?>
-
-            <form action="login.php" method="POST" class="login-form">
-                <div class="form-group">
-                    <label for="username" class="form-label">Nume de utilizator</label>
-                    <input type="text" id="username" name="username" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Parolă</label>
-                    <input type="password" id="password" name="password" class="form-input" required>
-                </div>
-                <button type="submit" class="login-button">Autentificare</button>
-            </form>
-        </div>
     </div>
 </section>
 <script src="../script/script.js"></script>

@@ -121,66 +121,87 @@ if (isset($_SESSION['feedback_message'])) {
             </div>
         </section>
     </main>
-    <section id="about" class="section-about">
-    <div class="container">
+    <section id="about" class="section-legend">
+        <div class="container">
 
-    
-        <div class="about-content">
+<div class="legend-container">
+        <div class="legend-content">
             <h2>The Legend</h2>
-            <p>Într-un sat mic ascuns în munții Japoniei, oamenii credeau că spiritul muntelui, Kashi-no-Kami, le-a dăruit cunoștințele sacre ale coacerii pâinii și dulciurilor. Aceste creații divine erau pline cu esența pământului, cerului și anotimpurilor eterne, iar cei care le gustau erau binecuvântați cu noroc și o viață lungă și prosperă.</p>
-
-<p>Pe măsură ce timpul trecea, meșteșugul coacerii s-a perfecționat, iar pâinile și prăjiturile reflectau aroma ingredientelor sfinte din jurul muntelui — matcha din câmpiile verzi de ceai, fasolea roșie din văile sacre și orezul auriu crescut sub privirea atentă a zeilor. Doar câțiva aleși aveau acces la rețetele ancestrale, iar aceștia coceau cu o atingere divină, creând produse de o frumusețe etereală, care păreau să strălucească.</p>
-
-<p>Un tânăr brutar, Akihiko, care provenea dintr-o familie de brutari cu tradiție veche de secole, a descoperit un vechi pergament într-un templu sacru al muntelui. Pergamentul, scris într-o limbă uitată, conținea o rețetă misterioasă care putea chema spiritele recoltei. Inspirat de viziuni și ghidat de înțelepciunea strămoșilor săi, Akihiko a experimentat cu rețeta, adăugând ingrediente tradiționale și un strop de magie. Astfel, a creat o prăjitură atât de delicioasă încât cei care o gustau aveau viziuni ale zeilor muntelui și erau transportați într-o lume de vis.</p>
-
-<p>În scurt timp, cofetăria lui Akihiko a devenit celebră, atrăgând călători din toate colțurile lumii care veneau pentru a gusta din creațiile sale magice. Mulți credeau că rețetele aveau puterea de a oferi nemurirea, alții că ele deschideau o poartă către lumea spiritelor. Astăzi, tradiția continuă într-o cofetărie din inima unui oraș agitat, aducând magia și înțelepciunea străveche a Japoniei în fiecare pâine, prăjitură și mușcătură. Cu fiecare creație, păstrăm vie legătura cu zeii, pământul și cerul, asigurându-ne că magia noastră va dăinui pentru generațiile viitoare.</p>
-
+            <p>
+                Într-un sat mic ascuns în munții Japoniei, oamenii credeau că spiritul muntelui, Kashi-no-Kami,
+                le-a dăruit cunoștințele sacre ale coacerii pâinii și dulciurilor. Aceste creații divine erau pline
+                cu esența pământului, cerului și anotimpurilor eterne, iar cei care le gustau erau binecuvântați
+                cu noroc și o viață lungă și prosperă.
+            </p>
+            <p>
+                Pe măsură ce timpul trecea, meșteșugul coacerii s-a perfecționat, iar pâinile și prăjiturile reflectau
+                aroma ingredientelor sfinte din jurul muntelui — matcha din câmpiile verzi de ceai, fasolea roșie din
+                văile sacre și orezul auriu crescut sub privirea atentă a zeilor. Doar câțiva aleși aveau acces la
+                rețetele ancestrale, iar aceștia coceau cu o atingere divină, creând produse de o frumusețe etereală,
+                care păreau să strălucească.
+            </p>
+            <p>
+                Un tânăr brutar, Akihiko, care provenea dintr-o familie de brutari cu tradiție veche de secole, a descoperit
+                un vechi pergament într-un templu sacru al muntelui. Pergamentul, scris într-o limbă uitată, conținea o rețetă
+                misterioasă care putea chema spiritele recoltei. Inspirat de viziuni și ghidat de înțelepciunea strămoșilor săi,
+                Akihiko a experimentat cu rețeta, adăugând ingrediente tradiționale și un strop de magie. Astfel, a creat o prăjitură
+                atât de delicioasă încât cei care o gustau aveau viziuni ale zeilor muntelui și erau transportați într-o lume de vis.
+            </p>
+            <p>
+                În scurt timp, cofetăria lui Akihiko a devenit celebră, atrăgând călători din toate colțurile lumii care veneau
+                pentru a gusta din creațiile sale magice. Mulți credeau că rețetele aveau puterea de a oferi nemurirea, alții că
+                ele deschideau o poartă către lumea spiritelor. Astăzi, tradiția continuă într-o cofetărie din inima unui oraș agitat,
+                aducând magia și înțelepciunea străveche a Japoniei în fiecare pâine, prăjitură și mușcătură. Cu fiecare creație,
+                păstrăm vie legătura cu zeii, pământul și cerul, asigurându-ne că magia noastră va dăinui pentru generațiile viitoare.
+            </p>
         </div>
-        <div class="about-image">
-            <img  class="about-image" src="./img/chef__contact.png" loading="lazy" alt="About Us" />
+        <div class="legend-image">
+            <img class="about-image" src="./img/chef__contact.png" loading="lazy" alt="About Us" />
         </div>
     </div>
+
+        </div>
+    
 </section>
+
 <section class="social-section">
     <div class="container">
-      <div class="social-img">
-
-      <img src="./img/IMG_legend.avif" width="650px" alt="">
-      </div>
-
-<div class="social-container">
-     <div class="content-social">
-    <!-- Imagini pentru rețele sociale -->
-    <a href="https://facebook.com" class="footer-social__icon" aria-label="Facebook">
-    <i class="bi bi-facebook" style="font-size: 26px;"></i>
-    </a>
-    <a href="https://instagram.com" class="footer-social__icon" aria-label="Instagram">
-    <i class="bi bi-instagram" style="font-size: 26px;"></i>
-    </a>
-    <a href="https://twitter.com" class="footer-social__icon" aria-label="Twitter">
-        <i class="bi bi-twitter" style="font-size: 26px;"></i> <!-- Icon Twitter -->
-    </a>
-</div>
-
-        <!-- Text informativ -->
-        <div class="social-text">
-            <p>Our centuries-old history continues to bring the magic of tradition into every product. Join our community and share the story of this legendary bakery! Follow us for the latest updates and special offers, and don't forget to share with your loved ones to keep our tradition alive in every corner of the world!</p>
-        </div>
-
-        <!-- Buton de partajare -->
-        <div class="social-share">
-            <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">
-                <span>Partajează pe Facebook</span>
-            </button>
-            <button onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">
-                <span>Partajează pe Twitter</span>
-            </button>
+        <div class="social-content">
+            <div class="social-img">
+                <img src="./img/IMG_legend.avif" width="650px" alt="">
+            </div>
+            <div class="social-container">
+                <div class="content-social">
+                    <a href="https://facebook.com" class="footer-social__icon" aria-label="Facebook">
+                        <i class="bi bi-facebook" style="font-size: 26px;"></i>
+                    </a>
+                    <a href="https://instagram.com" class="footer-social__icon" aria-label="Instagram">
+                        <i class="bi bi-instagram" style="font-size: 26px;"></i>
+                    </a>
+                    <a href="https://twitter.com" class="footer-social__icon" aria-label="Twitter">
+                        <i class="bi bi-twitter" style="font-size: 26px;"></i>
+                    </a>
+                </div>
+                <div class="social-text">
+                    <p>
+                        Our centuries-old history continues to bring the magic of tradition into every product.
+                        Join our community and share the story of this legendary bakery! Follow us for the latest
+                        updates and special offers, and don't forget to share with your loved ones to keep our
+                        tradition alive in every corner of the world!
+                    </p>
+                </div>
+                <div class="social-share">
+                    <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">
+                        <span>Partajează pe Facebook</span>
+                    </button>
+                    <button onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">
+                        <span>Partajează pe Twitter</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-   
 </section>
-
 
 
 

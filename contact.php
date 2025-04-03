@@ -73,7 +73,7 @@ $settings = $result->fetch_assoc();
              </div>
 
         </div>
-        <img src="./img/Logo_inalt.png" alt="" class="contact-img">
+        <!-- <img src="./img/Logo_inalt.png" alt="" class="contact-img"> -->
     </div>
 </section>
 

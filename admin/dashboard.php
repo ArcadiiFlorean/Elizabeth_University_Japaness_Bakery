@@ -167,101 +167,134 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 
 <section class="section-dashboard">
     <div class="container">
-    <div class="admin_settings">
-        <h1>Admin - Settings Contact</h1>
-        <form action="dashboard.php" method="POST">
-            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-            <input type="hidden" name="update_contact" value="1">
+
+    
+        <div class="admin-panel-all">
+        <div class="admin-title">
+        <h1>Admin - Meniu Produse</h1>
+    <h1>Admin - Settings Contact</h1>
+    <h1>Admin -Week houres</h1>
+    </div>
+        <div class="admin-panel">
+  
+ 
+
+<div class="admin_meniu">
             
-            <label>Telefon:</label>
-            <input type="text" name="phone" value="<?php echo htmlspecialchars($settings['phone']); ?>" required><br>
+               
+                <form action="dashboard.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                    <input type="hidden" name="add" value="1">
+                    <label>Nume produs:</label>
+                    <input type="text" name="name" required><br>
+                    <label>Descriere:</label>
+                    <textarea name="description" required></textarea><br>
+                    <label>Preț:</label>
+                    <input type="number" name="price" step="0.01" required><br>
+                    <label>Imagine:</label>
+                    <input type="file" name="image"><br>
+                    <input type="submit" value="Adaugă">
+                </form>
+            </div>
 
-            <label>Email:</label>
-            <input type="email" name="email" value="<?php echo htmlspecialchars($settings['email']); ?>" required><br>
 
-            <label>Adresă:</label>
-            <input type="text" name="address" value="<?php echo htmlspecialchars($settings['address']); ?>" required><br>
 
-            <label>Link Google Maps:</label>
-            <input type="text" name="map_link" value="<?php echo htmlspecialchars($settings['map_link']); ?>" required><br>
 
-            <input type="submit" value="Salvează modificările">
-        </form>
+
+
+
+
+
+
+
+         <div class="admin_settings">
+        
+            <form action="dashboard.php" method="POST">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                <input type="hidden" name="update_contact" value="1">
+                
+                <label>Telefon:</label>
+                <input type="text" name="phone" value="<?php echo htmlspecialchars($settings['phone']); ?>" required><br>
+
+                <label>Email:</label>
+                <input type="email" name="email" value="<?php echo htmlspecialchars($settings['email']); ?>" required><br>
+
+                <label>Adresă:</label>
+                <input type="text" name="address" value="<?php echo htmlspecialchars($settings['address']); ?>" required><br>
+
+                <label>Link Google Maps:</label>
+                <input type="text" name="map_link" value="<?php echo htmlspecialchars($settings['map_link']); ?>" required><br>
+
+                <input type="submit" value="Salvează modificările">
+            </form>
         </div>
-        <form method="post" action="update_hours.php">
-        <form method="post" action="update_hours.php">
-    <label>Luni:</label> <input type="text" name="monday_hours" placeholder="Ex: 09:00 - 17:00">
-    <label>Marți:</label> <input type="text" name="tuesday_hours" placeholder="Ex: 09:00 - 17:00">
-    <label>Miercuri:</label> <input type="text" name="wednesday_hours" placeholder="Ex: 09:00 - 17:00">
-    <label>Joi:</label> <input type="text" name="thursday_hours" placeholder="Ex: 09:00 - 17:00">
-    <label>Vineri:</label> <input type="text" name="friday_hours" placeholder="Ex: 09:00 - 17:00">
-    <label>Sâmbătă:</label> <input type="text" name="saturday_hours" placeholder="Ex: 09:00 - 17:00">
-    <label>Duminică:</label> <input type="text" name="sunday_hours" placeholder="Ex: 09:00 - 17:00">
-    <button type="submit">Actualizează orele</button>
-</form>
-    <div class="dashboard">
 
-           <div class="admin_meniu">
-
-            <h1>Admin - Meniu Produse</h1>
-        <h2>Adaugă un nou produs</h2>
-        <form action="dashboard.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-            <input type="hidden" name="add" value="1">
-            <label>Nume produs:</label>
-            <input type="text" name="name" required><br>
-            <label>Descriere:</label>
-            <textarea name="description" required></textarea><br>
-            <label>Preț:</label>
-            <input type="number" name="price" step="0.01" required><br>
-            <label>Imagine:</label>
-            <input type="file" name="image"><br>
-            <input type="submit" value="Adaugă">
+      <div class="admin-hours">
+      
+         <form method="post" action="update_hours.php">
+            <label>Luni:</label> <input type="text" name="monday_hours" placeholder="Ex: 09:00 - 17:00"><br>
+            <label>Marți:</label> <input type="text" name="tuesday_hours" placeholder="Ex: 09:00 - 17:00"><br>
+            <label>Miercuri:</label> <input type="text" name="wednesday_hours" placeholder="Ex: 09:00 - 17:00"><br>
+            <label>Joi:</label> <input type="text" name="thursday_hours" placeholder="Ex: 09:00 - 17:00"><br>
+            <label>Vineri:</label> <input type="text" name="friday_hours" placeholder="Ex: 09:00 - 17:00"><br>
+            <label>Sâmbătă:</label> <input type="text" name="saturday_hours" placeholder="Ex: 09:00 - 17:00"><br>
+            <label>Duminică:</label> <input type="text" name="sunday_hours" placeholder="Ex: 09:00 - 17:00"><br>
+            <button type="submit">Actualizează orele</button>
         </form>
+      </div>
+       
 
-           </div>
+     </div>
+       
+        <div class="admin-products-area">
 
-<div class="admin_img">
+      
+            
 
-<!-- <form action="upload_main_image.php" method="POST" enctype="multipart/form-data">
-    <label for="main_image">Upload New Main Image:</label>
-    <input type="file" name="main_image" id="main_image" required>
-    <button type="submit" name="upload">Upload</button>
-</form> -->
+           
 
-</div>
-
-       <div class="admin_products">
-        <h2>Produse existente</h2>
-        <table border="1">
-            <tr><th>ID</th><th>Nume</th><th>Descriere</th><th>Preț</th><th>Imagine</th><th>Acțiuni</th></tr>
-            <?php foreach ($products as $product): ?>
-                <tr>
-                    <form action="dashboard.php" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                        <input type="hidden" name="update" value="1">
-                        <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                        <td><?php echo $product['id']; ?></td>
-                        <td><input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>"></td>
-                        <td><textarea name="description"><?php echo htmlspecialchars($product['description']); ?></textarea></td>
-                        <td><input type="number" name="price" step="0.01" value="<?php echo $product['price']; ?>"> Lei</td>
-                        <td>
-                            <img src="<?php echo $product['image']; ?>" width="100"><br>
-                            <input type="file" name="image">
-                        </td>
-                        <td>
-                            <input type="submit" value="Salvează">
-                            <a href="dashboard.php?delete_id=<?php echo $product['id']; ?>" onclick="return confirm('Sigur ștergi?')">Șterge</a>
-                        </td>
-                    </form>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+            <!-- List of Existing Products -->
+            <div class="admin_products_existing">
+                <h2>Produse existente</h2>
+                <table border="1">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nume</th>
+                        <th>Descriere</th>
+                        <th>Preț</th>
+                        <th>Imagine</th>
+                        <th>Acțiuni</th>
+                    </tr>
+                    <?php foreach ($products as $product): ?>
+                        <tr>
+                            <form action="dashboard.php" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                                <input type="hidden" name="update" value="1">
+                                <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                                <td><?php echo $product['id']; ?></td>
+                                <td><input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>"></td>
+                                <td><textarea name="description"><?php echo htmlspecialchars($product['description']); ?></textarea></td>
+                                <td><input type="number" name="price" step="0.01" value="<?php echo $product['price']; ?>"> Lei</td>
+                                <td>
+                                    <img src="<?php echo $product['image']; ?>" width="100"><br>
+                                    <input type="file" name="image">
+                                </td>
+                                <td>
+                                    <input type="submit" value="Salvează">
+                                    <a href="dashboard.php?delete_id=<?php echo $product['id']; ?>" onclick="return confirm('Sigur ștergi?')">Șterge</a>
+                                </td>
+                            </form>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
         </div>
-    </div>
-    </div>
 
+        </div>
+     
+    </div>
 </section>
+
 
 </body>
 </html>

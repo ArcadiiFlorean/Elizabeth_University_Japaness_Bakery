@@ -68,14 +68,6 @@ body {
   z-index: 1000; /* Asigură-te că este deasupra altor elemente */
 }
 
-/* .container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
 
 /* LOGO */
 .navbar__logo {
@@ -113,9 +105,6 @@ body {
 }
 
 /*header special*/
-.login-section {
-  padding-top: 150px;
-}
 
 .dashboard-container {
   padding-top: 150px;
@@ -125,13 +114,11 @@ body {
   padding-top: 150px;
 }
 
-.dashboard {
+.admin-products-area{
   padding-top: 150px;
 }
 
-.admin_settings {
-  padding-top: 150px;
-}
+
 .header-admin {
   background-color: rgb(136, 136, 136);
   padding: 15px 0;
@@ -450,27 +437,35 @@ footer {
 .contact-section {
   padding-top: 250px;
   padding-bottom: 150px;
-  /* background: linear-gradient(135deg, rgba(255, 165, 165, 0.8), rgba(246, 240, 232, 0.7));  */
+  background: linear-gradient(135deg, rgba(255, 165, 165, 0.8), rgba(246, 240, 232, 0.7)); 
+  background-image: url(../img/Logo_2.png);
+  background-repeat: no-repeat;
+  background-size: contain
+  ;
+
 }
 
 .contact-info-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* gap: 120px; */
-  background-size: cover;
-  background-position: center;
   padding: 40px;
   border-radius: 10px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  background-image: url(../img/papirus.png);
-  background-size: 100% 100%; /* Lățime 100% și înălțime 200% (extinsă pe verticală) */
+  background: transparent;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
+  
+  /* Adaugă un border subtil */
+
+
+  /* Adaugă o umbră pentru un efect 3D */
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
+
 .contact-img {
   height: 100%;
   width: 550px;
-  /* border-radius: 100%; */
+
   margin-right: 62px;
   filter: sepia(30%) contrast(90%);
 }
@@ -480,12 +475,9 @@ footer {
 }
 
 .contact-info-header {
-  border-radius: 5px; /* Colțuri rotunjite */
+  border-radius: 5px;
   padding: 10px;
-  /* background-image: url(../img/papirus.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-blend-mode: overlay; */
+
   background-color: transparent;
   text-align: center;
   margin-right: 45px;
@@ -495,15 +487,12 @@ footer {
   font-size: 2rem;
 }
 
-.contact-info-header p {
-  font-size: 1.25rem;
-}
 
 .contact-form {
   background-color: transparent;
   padding: 30px;
   border-radius: 8px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -531,7 +520,7 @@ footer {
 }
 
 .contact-form button {
-  background-color: #e60012; /* Buton roșu pentru a atrage atenția */
+  background-color: #e60012;
   color: #fff;
   border: none;
   padding: 15px 30px;
@@ -545,18 +534,13 @@ footer {
   background-color: #b3000d; /* Roșu închis la hover */
 }
 /*ABOUTUS///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-.section-about {
+.section-legend {
   padding: 150px 0;
-  /* background-color: #f4f4f4;  */
-  /* background-image: url(../img/dragon.jpg); */
 
-  /* background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay; */
 }
 
-.container {
-  width: 80%;
+.legend-container {
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -565,23 +549,20 @@ footer {
 }
 /*//////////////////////////////////////////////////////////////////*/
 
-/* Styling for the About Section */
-
-/* Subtle animation for fade-in effect */
 
 /*/////////////////////////////////////////////////////////////////*/
-.about-content {
+.legend-content {
   flex: 1;
   padding: 20px;
   background-image: url(../img/papirus.png);
-  background-size: 100% 100%; /* Lățime 100% și înălțime 200% (extinsă pe verticală) */
+  background-size: 100% 100%; 
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   background-color: #f8f4e6;
   padding-bottom: 25px;
 }
 
-.about-content h2 {
+.legend-content h2 {
   font-size: 32px;
   color: #333;
   margin-bottom: 15px;
@@ -590,7 +571,7 @@ footer {
   text-align: center;
 }
 
-.about-content p {
+.legend-content p {
   font-size: 18px;
   color: #666;
   line-height: 1.6;
@@ -601,12 +582,12 @@ footer {
   margin-left: 40px;
 }
 
-.about-image {
+.legend-image {
   flex: 1;
   text-align: center;
 }
 
-.about-image img {
+.legend-image img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
@@ -615,19 +596,25 @@ footer {
 /*SOCIAL SECTION/////////////////////////////////////////////////////////////////////////////////////////////////*/
 .social-section {
   padding: 20px;
-  /* background-color: #333;  */
-  text-align: center;
-  color: white;
+
+ 
+  
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
+.social-content{
+  justify-content: space-between;
+  align-items: center;
+  display: flex
+;
+}
+.social-img img{
+  border-radius: 25px;
+}
 .social-container {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .content-social a {
   margin: 10px;
@@ -659,7 +646,7 @@ footer {
 
 /*CONTACT//////////////////////////////////////////////////////////////////////////////////////*/
 .login-section {
-  margin-top: 0; /* Eliminăm margin-top */
+  margin-top: 150px; /* Eliminăm margin-top */
   width: 100%;
   height: 100vh; /* Ocupă 100% din înălțimea vizibilă a ecranului */
   background-image: url(../img/Logo_2.png);
@@ -679,6 +666,7 @@ footer {
   background: #f5f5f5;
 }
 
+
 .login-content {
   display: flex;
   background: white;
@@ -689,10 +677,14 @@ footer {
   max-width: 350px;
   width: 100%;
   border: 4px double #b30000;
-position: relative;
-margin-bottom: 550px;
 
+  /* Poziționare puțin mai jos și la stânga */
+  position: absolute;
+  top: 200px; /* Ajustează pentru a o muta mai jos */
+  right: 200px; /* Ajustează pentru a o muta mai la stânga */
 }
+
+
 .login-title {
   color: #b30000;
   margin-bottom: 20px;
@@ -789,4 +781,19 @@ margin-bottom: 550px;
   right: 15px;
   font-size: 30px;
   cursor: pointer;
+}
+/*ADMIN////////////////////////////////////////////////////////////////////////////////////////////////*/
+.admin-panel{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 150px;
+  
+}
+
+.admin-title{
+  padding-top: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
