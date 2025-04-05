@@ -87,13 +87,22 @@ if (isset($_SESSION['feedback_message'])) {
     </header>
 
     <main class="main">
-        <div class="main__welcome">
+        <!-- <div class="main__welcome">
             <h1 class="main__title">Welcome to Sweet Treats! <span>Japanese bakery</span></h1>
             <p class="main__paragraf">日本のレストランは、寿司、刺身、天ぷら、ラーメンなどの新鮮な料理を提供します。落ち着いた雰囲気で、細部にこだわったデザインが特徴です。</p>
 
-        </div>
+        </div> -->
 
+        <div class="slider-container">
+        <div class="slides">
+    <div class="slide" style="background-image: url('../img/contact_img.jpg');"></div>
+    <div class="slide" style="background-image: url('img/contact_img2.jpg');"></div>
+    <div class="slide" style="background-image: url('img/contact_img3.jpg');"></div>
+</div>
 
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
         
 
         <!-- Secțiune pentru mesajul de feedback -->
