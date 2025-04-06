@@ -63,7 +63,7 @@ $result = $conn->query($query);
 
 <h1>Admin - Feedback Utilizatori</h1>
 <a href="dashboard.php">Înapoi la Panoul de Control</a>
-
+<!-- 
 <section class="admin_feedback">
     <div class="container">
         <table border="1">
@@ -86,7 +86,7 @@ $result = $conn->query($query);
             <?php endwhile; ?>
         </table>
     </div>
-</section>
+</section> -->
 
 <?php mysqli_close($conn); ?>
 

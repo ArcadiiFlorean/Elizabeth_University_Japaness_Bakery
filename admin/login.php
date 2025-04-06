@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </li>
                     <li class="navbar__list">
                     <a class="navbar__link" href="../index.php#featured-products" aria-label="Daily menu">Daily Menu</a>
-
+                    <li class="navbar__list"><a class="navbar__link" href="../contact.php">Contact</a></li>
 
 
                     </li>

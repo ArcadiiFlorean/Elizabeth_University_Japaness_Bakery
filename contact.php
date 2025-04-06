@@ -26,7 +26,7 @@ $settings = $result->fetch_assoc();
         <ul class="navbar__items">
             <li class="navbar__list"><a class="navbar__link" href="index.php">Home</a></li>
             <li class="navbar__list"><a class="navbar__link" href="index.php#featured-products">Daily Menu</a></li>
-            <li class="navbar__list"><a class="navbar__link" href="contact.php">Contact</a></li>
+
             <li class="navbar__list">
                 <button class="back-button" onclick="window.history.back();" aria-label="Go back">Back</button>
             </li>

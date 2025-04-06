@@ -1,118 +1,87 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1340px;
-  margin: 0 auto;
+body,
+html {
+  background-color: #f8f4e6; /* Culoarea de fundal a paginii */
 }
-.navbar__menu {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-.navbar__list {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.logo {
-  width: 70px;
-  height: 70px;
-  /* border-radius: 100%; */
-}
-
-/*experiment */
-
-/* Importă un font tradițional japonez */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap");
-
-/* Setări generale pentru stil japonez */
-body {
-  background-color: #f8f4e6;
-  font-family: "Noto Serif JP", serif;
-  color: #2c2c2c;
-  margin: 0;
-  padding: 0;
-  /* background-image: url(../img/dragon.jpg);
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay; */
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1;
-}
-
 /* HEADER */
 .header {
   background-color: #8c2727; /* Roșu tradițional japonez */
   padding: 15px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 0; /* Fixează header-ul în partea de sus */
-  left: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
-  right: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
-  width: 100%; /* Asigură-te că ocupă întreaga lățime a paginii */
-  z-index: 1000; /* Asigură-te că este deasupra altor elemente */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* LOGO */
-.navbar__logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: 2px;
-  margin-right: 150px;
+.logo {
+  width: 70px;
+  height: 70px;
 }
 
 /* NAVIGATION MENU */
 .navbar__menu {
   display: flex;
-}
-
-.navbar__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+  align-items: center;
   gap: 30px;
 }
+
 .navbar__items {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 30px; /* Folosește gap uniform peste tot */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+/* LINK-URI DE NAVIGAȚIE */
 .navbar__link {
   font-size: 18px;
   color: white;
   text-decoration: none;
   padding: 8px 12px;
-  position: relative; /* Necesită pentru poziționarea pseudo-elementului */
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar__link:hover {
+  color: #ffcc00;
+}
+
+/* NAVBAR LOGO LINK */
+.navbar__logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin-right: 150px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 1;
 }
 
 /*header special*/
-
-.dashboard-container {
-  padding-top: 150px;
-}
-
-.admin-dashboard {
-  padding-top: 150px;
-}
-
+/* Gruparea claselor pentru optimizare */
+.dashboard-container,
+.admin-dashboard,
+.admin_feedback,
+.feedback-form ,
 .admin-products-area {
   padding-top: 150px;
 }
@@ -122,16 +91,14 @@ body {
   padding: 15px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 0; /* Fixează header-ul în partea de sus */
-  left: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
-  right: 0; /* Poți adăuga această proprietate pentru a-l fixa pe întreaga lățime */
-  width: 100%; /* Asigură-te că ocupă întreaga lățime a paginii */
-  z-index: 1000; /* Asigură-te că este deasupra altor elemente */
+  top: 0; 
+  left: 0;
+  right: 0; 
+  width: 100%; 
+  z-index: 1000; 
 }
 
-.admin_feedback {
-  padding-top: 150px;
-}
+
 .navbar__link::after {
   content: "";
   position: absolute;
@@ -160,78 +127,67 @@ body {
 
 /* Meniul pe mobil */
 
+/* MAIN SECTION */
 .main {
   padding-top: 100px;
 }
 
-.main__welcome {
+/* General Container Styling */
+.container {
   max-width: 1340px;
   margin: 0 auto;
+}
+
+/* Background Image Section */
+.main__welcome {
   background-image: url(../img/main__img.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 550px;
-  width: auto;
-  margin-top: 25px;
   border-radius: 25px;
-  /* display: flex;
-flex-direction: column;
-align-items: ; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  margin-top: 25px;
 }
 
+/* Title Styling */
 .main__title {
   font-family: "Noto Sans JP", sans-serif;
   max-width: 550px;
-  font-size: 3.5rem; /* Dimensiune mare pentru titlu */
-  color: rgb(
-    255,
-    255,
-    255
-  ); /* Culoare albă pentru un contrast bun pe fundalul imaginii */
-  text-align: center; /* Centrarea textului pe ecran */
-  text-transform: none; /* Menținerea stilului natural al textului */
-  letter-spacing: 0.1em; /* Spațiere între litere pentru un aspect elegant */
-  padding: 30px 20px; /* Margini pentru a adăuga spațiu în jurul textului */
+  font-size: 3.5rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.1em;
+  padding: 30px 20px;
+  margin-bottom: 10px; 
 }
+
+/* Subtitle Styling */
 .main__title span {
   color: rgb(202, 202, 202);
   font-size: 2rem;
 }
-.main__paragraf {
-  display: flex;
 
+/* Paragraph Styling */
+.main__paragraf {
   text-align: center;
   color: rgb(192, 192, 192);
   max-width: 400px;
-  margin-left: 90px;
+  margin: 0 auto; /* Centrare automată */
+  padding: 10px;
 }
 
+/* Social Media Container */
 .main-social {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
 
-.footer-social {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
 
 /* Stiluri generale pentru toate secțiunile */
 .main__section {
@@ -241,7 +197,7 @@ footer {
   margin: 0 auto;
   font-family: "Noto Serif JP", serif;
 }
-/*EXPERIMENT*/
+
 
 .feature-product-title {
   display: flex;
@@ -262,12 +218,44 @@ footer {
 }
 
 /* Stiluri pentru secțiunea de introducere */
+/* Global Container */
+.main__section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
+/* Titles */
+.main__section-title {
+  font-size: 3.5rem;
+  color: #8c2727;
+  text-align: center;
+}
+
+.feature-product-title {
+  font-family: "Allura", cursive;
+  font-size: 2.5rem;
+  color: #8c2727;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Subtitles */
+.feature-product-description {
+  font-family: "Pacifico", cursive;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Intro Section */
 .main__section--intro {
-  background-color: #fff0e6; /* un fundal diferit pentru introducere */
+  background-color: #fff0e6;
   color: #333;
 }
 
-/* Stiluri pentru secțiunea de produse recomandate */
+/* Featured Products Section */
 .main__section--featured-products {
   display: flex;
   flex-direction: column;
@@ -276,19 +264,21 @@ footer {
   background-color: #f8f4e6;
 }
 
-.fearure-img {
+/* Image Container */
+.feature-img {
   display: flex;
   align-items: center;
   gap: 100px;
 }
 
+/* Main Container */
 .main__container {
   display: flex;
-
   justify-content: center;
   gap: 55px;
 }
 
+/* Image Styling */
 .main__container--img {
   border-radius: 100%;
 }
@@ -297,22 +287,17 @@ footer {
   display: flex;
   flex-direction: column;
   max-width: 550px;
-  font-weight: 500;
   text-align: center;
 }
 
-.main__section-title {
-  font-size: 3.5rem;
-  color: #8c2727;
-}
-
+/* Text Styling */
 .main__section-text {
   font-size: 1.25rem;
-  max-width: 450px;
-  font-family: "Noto Serif JP", serif;
   color: #000000;
+  margin-bottom: 10px;
 }
 
+/* Grid Image Styling */
 .grid__img {
   width: 250px;
   height: 250px;
@@ -324,19 +309,10 @@ footer {
   height: auto;
 }
 
-/* .grid__img--modify{
-  border-radius: 25%;
-  width: 550px;
-  height: 550px;
 
-} */
-/*FEEDBACK-FORM*/
 
-.feedback-form {
-  margin-top: 150px;
-}
 
-/*MENU CONTAINER sectiunea cu produse adaugate  */
+/*MENU CONTAINER sectiunea cu produse adaugate ///////////////////////////////////////////////// */
 
 .menu_container {
   display: flex;
@@ -366,49 +342,64 @@ footer {
 
 /* Efect la hover pentru fiecare item */
 
-.menu-item:hover {
-  transform: scale(1.05); /* Mărește elementul la hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adaugă umbră la hover */
-  cursor: pointer; /* Schimbă cursorul pentru un efect interactiv */
-}
+/* ============================
+   STILIZARE PENTRU .menu-item
+   ============================ */
 
-.menu-item:hover .menu_img {
-  filter: grayscale(0%); /* Revine la culoare la hover */
-}
-
-/* Stil pentru titlul itemului */
-.menu-item h4 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px; /* Spațiu între titlu și descriere */
-  color: #333; /* Culoare text mai închisă pentru titlu */
-}
-
-/* Stil pentru descriere */
-.menu-item p {
-  font-size: 14px;
-  color: #666; /* Culoare text deschisă pentru descriere */
-  margin-bottom: 8px; /* Spațiu între descriere și preț */
-}
-
-/* Stil pentru preț */
-.menu-item .price {
-  font-size: 16px;
-  font-weight: bold;
-  color: #007bff; /* Culoare albastră pentru preț */
-  margin-bottom: 15px; /* Spațiu sub preț */
-}
-
-/* Stilizare pentru imaginea din item */
-.menu-item .menu_img {
-  width: 100%; /* Imaginea va avea lățimea maximă a containerului */
-  height: 200px; /* Înălțimea fixă a imaginii */
-  object-fit: cover; /* Asigură că imaginea umple spațiul fără a fi distorsionată */
-  border-radius: 8px; /* Colțuri rotunjite pentru imagine */
-  margin-top: auto; /* Adaugă spațiu între descriere și imagine */
-  filter: grayscale(100%); /* Transformă imaginea în alb-negru */
-  transition: filter 0.3s ease, transform 0.3s ease; /* Efecte de tranziție pentru hover */
-}
+   .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Tranziții pentru scalare și umbră */
+  }
+  
+  /* Efect de hover pentru întregul item */
+  .menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  /* Stil pentru imagine */
+  .menu-item .menu_img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease; /* Tranziții animate */
+  }
+  
+  /* Imaginea revine la culoare la hover */
+  .menu-item:hover .menu_img {
+    filter: grayscale(0%);
+  }
+  
+  /* Titlul produsului */
+  .menu-item h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 5px;
+    transition: color 0.3s;
+  }
+  
+  /* Descrierea produsului */
+  .menu-item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  /* Prețul produsului */
+  .menu-item .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
 /* Responsivitate */
 @media (max-width: 768px) {
   .menu-item {
@@ -426,16 +417,19 @@ footer {
 }
 
 .menu_img {
-  width: 250px; /* poți ajusta dimensiunea dorită */
-  height: 250px; /* poți ajusta dimensiunea dorită */
-  object-fit: cover; /* imaginea va fi scalată pentru a umple complet zona */
+  width: 250px;       /* Lățimea imaginii */
+  height: 250px;      /* Înălțimea imaginii */
+  object-fit: cover;  /* Imaginea se va adapta fără a fi distorsionată */
+  border-radius: 12px; /* Colțuri rotunjite pentru un aspect mai plăcut */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Tranziții line */
 }
+
 
 /*CONTACTS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .contact-section {
   padding-top: 250px;
   padding-bottom: 150px;
-  /* background: linear-gradient(135deg, rgba(255, 165, 165, 0.8), rgba(246, 240, 232, 0.7));  */
+
   background-image: url(../img/contact_img2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -447,24 +441,26 @@ footer {
   justify-content: space-between;
   padding: 40px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.6); /* Semi-transparent */
+  background: rgba(255, 255, 255, 0.6); 
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
-  /* Adaugă efect de blur pe fundal */
-  backdrop-filter: blur(10px); /* 10px de blur */
-  -webkit-backdrop-filter: blur(10px); /* Suport pentru Safari */
 
-  /* Adaugă o umbră pentru un efect 3D */
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
+
+
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-img {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow with some offset and blur */
-  border-radius: 50%; /* For a circular image */
-  height: auto; /* Keeps the aspect ratio intact */
-  width: 600px; /* Fixed width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  border-radius: 50%;
+  width: 100%; 
+  max-width: 600px; 
+  height: auto; 
 }
+
 
 .contact-info {
   display: flex;
@@ -530,7 +526,7 @@ footer {
   background-color: #b3000d; /* Roșu închis la hover */
 }
 
-.map-section{
+.map-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -562,8 +558,7 @@ footer {
   background-image: url(../img/papirus.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  background-color: #f8f4e6;
+  background-color: transparent; /* Fundal transparent */
   padding-bottom: 25px;
 }
 
@@ -638,7 +633,7 @@ footer {
   padding: 12px 24px;
   margin: 5px;
   cursor: pointer;
-  font-family: 'Noto Serif JP', serif; /* Font elegant japonez */
+  font-family: "Noto Serif JP", serif; /* Font elegant japonez */
   border-radius: 25px; /* Margini rotunjite, fine */
   font-size: 16px;
   text-align: center;
@@ -650,7 +645,6 @@ footer {
   background-color: #f5b1ab; /* Roz mai intens la hover */
   transform: scale(1.05); /* Ușor efect de mărire la hover */
 }
-
 
 .social-share button:hover {
   background-color: #45a049; /* Schimbă culoarea la hover */
@@ -766,43 +760,48 @@ footer {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal.show {
+  display: block;
+  opacity: 1;
 }
 
 .modal-content {
   background-color: white;
-  margin: 10% auto;
+  margin: 5% auto;
   padding: 20px;
-  width: 60%;
+  border: 1px solid #888;
+  width: 50%; /* Lățime mai mică - Înainte era 80% */
+  max-width: 600px; /* Limitare pentru ecranele mari */
   border-radius: 10px;
-  text-align: center;
-  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
 }
 
-.modal-content img {
-  max-width: 500px;
-  height: 500px;
-  border-radius: 8px;
+.modal-content.show {
+  transform: scale(1);
 }
-
 .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 30px;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
   cursor: pointer;
 }
+
 /*ADMIN////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* .admin-panel{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
- margin-top: 150px;
-  
-} */
 
 /*Admin-meniu products*/
-/*admin-panel*/
+
 
 .admin_meniu {
   max-width: 500px;
@@ -852,60 +851,6 @@ footer {
 .admin_meniu input[type="submit"]:hover {
   background: #7d2626;
 }
-
-/*Admin/settings*/
-
-/*admin-panel*/
-
-/* 
-
-
-.admin_settings {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 25px;
-  background: rgba(255, 250, 240, 0.95); 
-  border-radius: 12px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  border: 2px solid #a67b5b; 
-  font-family: 'Noto Serif JP', serif;
-  text-align: center;
-}
-
-.admin_settings label {
-  display: block;
-  font-weight: bold;
-  color: #5a3e36;
-  margin-top: 10px;
-  text-align: left;
-}
-
-.admin_settings input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #a67b5b;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.8);
-  font-family: 'Noto Serif JP', serif;
-}
-
-.admin_settings input[type="submit"] {
-  background: #b53b3b;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  margin-top: 15px;
-}
-
-.admin_settings input[type="submit"]:hover {
-  background: #7d2626;
-} */
 
 /*admin-panel*/
 .admin-panel {
@@ -1005,7 +950,7 @@ footer {
 }
 
 .admin-hours button {
-  background: #b53b3b; /* Roșu tradițional japonez */
+  background: #b53b3b;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -1148,4 +1093,58 @@ td {
 .admin-products-existing input[type="file"] {
   padding: 8px;
   margin-top: 10px;
+}
+
+.clock {
+  font-size: 28px;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  color: rgb(214, 214, 214);
+}
+
+.back-button {
+  background-color: #e84c17; /* Soft beige, inspired by traditional Japanese paper (washi) */
+  color: #3a3a3a; /* Dark grey, a neutral tone */
+  font-family: "Yu Gothic", "Meiryo", sans-serif; /* Elegant Japanese-inspired fonts */
+  border: 2px solid #c58c43; /* Gold/brown border, reminiscent of traditional Japanese details */
+  padding: 10px 20px;
+  border-radius: 8px; /* Rounded corners, inspired by soft, organic shapes */
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #c58c43; /* Gold color on hover */
+  color: #ffffff; /* White text on hover */
+  transform: translateY(-3px); /* Slight lift on hover for a subtle 3D effect */
+}
+
+.back-button:focus {
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 0 0 5px 2px rgba(197, 140, 67, 0.7); /* Soft glow for focus */
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
