@@ -140,6 +140,7 @@ html {
 
 /* Background Image Section */
 .main__welcome {
+  position: relative;
   background-image: url(../img/main__img.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -148,9 +149,14 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   margin-top: 25px;
+  overflow: hidden; 
 }
+
+/* Overlay-ul pentru blur */
+
+/* Stilurile textului pentru a fi deasupra overlay-ului */
 
 /* Title Styling */
 .main__title {
@@ -162,6 +168,7 @@ html {
   letter-spacing: 0.1em;
   padding: 30px 20px;
   margin-bottom: 10px; 
+
 }
 
 /* Subtitle Styling */
@@ -173,10 +180,11 @@ html {
 /* Paragraph Styling */
 .main__paragraf {
   text-align: center;
-  color: rgb(192, 192, 192);
+  color: rgb(188 188 188);
   max-width: 400px;
-  margin: 0 auto; /* Centrare automată */
+margin: 0 auto;
   padding: 10px;
+
 }
 
 /* Social Media Container */
@@ -1036,7 +1044,7 @@ th {
 .admin-products-existing textarea {
   resize: vertical;
   height: 100px;
-}
+}footer
 
 .admin-products-existing input[type="submit"] {
   background: #b53b3b; /* Traditional Japanese red */

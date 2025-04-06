@@ -76,3 +76,11 @@ document.querySelectorAll('.menu-item').forEach(item => {
         openModal(name, description, price, imageSrc);
     });
 });
+
+
+// Functia pentru deschiderea/închiderea meniului hamburger
+// Functia pentru deschiderea/închiderea meniului hamburger
+function toggleMenu() {
+    const menuItems = document.querySelector('.navbar__items');
+    menuItems.classList.toggle('open'); // Adaugă sau elimină clasa 'open' de la .navbar__items
+}

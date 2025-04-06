@@ -49,11 +49,11 @@ if (isset($_SESSION['feedback_message'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/normallisation.css">
+    <link rel="stylesheet" href="css/mediaquery.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
 <header class="header">
-    <nav class="navbar">
+ <nav class="navbar">
         <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
             <img src="./img/Logo_2.png" alt="Sweet Treats Logo" class="logo">
         </a>
@@ -77,15 +77,19 @@ if (isset($_SESSION['feedback_message'])) {
                 <li class="navbar__list">
                     <a class="navbar__link" href="./admin/login.php" aria-label="Login">Admin</a>
                 </li>
+              
             </ul>
             <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
-                &#9776; <!-- Hamburger menu character -->
-            </div>
+                &#9776;
+                </div>
         </div>
     </nav>
-</header>
+</header> 
+
+<body>
 
 <main class="main">
+    
     <div class="main__welcome">
         <h1 class="main__title">Welcome to Sweet Treats! <span>Japanese bakery</span></h1>
         <p class="main__paragraf">日本のレストランは、寿司、刺身、天ぷら、ラーメンなどの新鮮な料理を提供します。落ち着いた雰囲気で、細部にこだわったデザインが特徴です。</p>

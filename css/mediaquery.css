@@ -1,17 +1,55 @@
+@media (max-width: 997px) {
+  /* Ascunde lista de navigare */
+  .navbar__items {
+    display: none;
+  }
+  .header{
+
+  }
+
+  /* Afișează butonul hamburger */
+  .hamburger-menu {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+  .menu_container {
+    display: flex;
+
+    justify-content: center;
+  }
+  .legend-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .legend-image img {
+    max-width: 65%;
+  }
+}
+
+@media (max-width: 912px) {
+.social-content{}
+}
+
 @media (max-width: 768px) {
-    .navbar__list {
-        display: none; /* Ascunde meniul pe mobil */
-        flex-direction: column;
-        gap: 15px;
-    }
+  .navbar__list {
+    display: none; /* Ascunde meniul pe mobil */
+    flex-direction: column;
+    gap: 15px;
+  }
 
-    .navbar__menu.open {
-        display: flex; /* Arată meniul când este activat */
-    }
+  .navbar__menu.open {
+    display: flex; /* Arată meniul când este activat */
+  }
 
-    .hamburger-menu {
-        display: block; /* Arată butonul hamburger pe mobil */
-    }
+  .hamburger-menu {
+    display: block; /* Arată butonul hamburger pe mobil */
+  }
+  .social-content {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* RESPONSIVE DESIGN */
@@ -20,4 +58,35 @@
     flex-direction: column;
     gap: 15px;
   }
+}
+
+@media (max-width: 576px) {
+  .main__welcome {
+  
+  }
+
+  .hamburger-menu{
+
+  }
+
+  .legend-image img {
+    max-width: 90%;
+  
+  }
+
+
+}
+
+
+@media (max-width: 480px) {
+.social-img img{
+  width: 100%;
+}
+
+.footer {
+  width: 100%; /* Asigură că footer-ul ocupă întreaga lățime pe dispozitive mici */
+  padding: 20px; /* Poți adăuga padding pentru a-l face mai estetic */
+  box-sizing: border-box; /* Asigură că padding-ul nu depășește dimensiunea totală */
+}
+
 }
