@@ -4,7 +4,8 @@ html {
 }
 /* HEADER */
 .header {
-  background-color: #8c2727; /* Roșu tradițional japonez */
+  /* background-image: linear-gradient(to right, #8c2727, rgba(0, 0, 255, 0)); */
+  background-color: #8c2727;
   padding: 15px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -81,7 +82,7 @@ html {
 .dashboard-container,
 .admin-dashboard,
 .admin_feedback,
-.feedback-form ,
+.feedback-form,
 .admin-products-area {
   padding-top: 150px;
 }
@@ -91,13 +92,12 @@ html {
   padding: 15px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 0; 
+  top: 0;
   left: 0;
-  right: 0; 
-  width: 100%; 
-  z-index: 1000; 
+  right: 0;
+  width: 100%;
+  z-index: 1000;
 }
-
 
 .navbar__link::after {
   content: "";
@@ -151,7 +151,7 @@ html {
   align-items: center;
   justify-content: center;
   margin-top: 25px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* Overlay-ul pentru blur */
@@ -167,8 +167,7 @@ html {
   text-align: center;
   letter-spacing: 0.1em;
   padding: 30px 20px;
-  margin-bottom: 10px; 
-
+  margin-bottom: 10px;
 }
 
 /* Subtitle Styling */
@@ -182,9 +181,8 @@ html {
   text-align: center;
   color: rgb(188 188 188);
   max-width: 400px;
-margin: 0 auto;
+  margin: 0 auto;
   padding: 10px;
-
 }
 
 /* Social Media Container */
@@ -195,8 +193,6 @@ margin: 0 auto;
   margin-top: 20px;
 }
 
-
-
 /* Stiluri generale pentru toate secțiunile */
 .main__section {
   padding: 20px;
@@ -205,7 +201,6 @@ margin: 0 auto;
   margin: 0 auto;
   font-family: "Noto Serif JP", serif;
 }
-
 
 .feature-product-title {
   display: flex;
@@ -317,15 +312,12 @@ margin: 0 auto;
   height: auto;
 }
 
-
-
-
 /*MENU CONTAINER sectiunea cu produse adaugate ///////////////////////////////////////////////// */
 
 .menu_container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+justify-content: center;
 }
 
 /* Stilizare pentru containerul fiecărui item */
@@ -354,60 +346,60 @@ margin: 0 auto;
    STILIZARE PENTRU .menu-item
    ============================ */
 
-   .menu-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Tranziții pentru scalare și umbră */
-  }
-  
-  /* Efect de hover pentru întregul item */
-  .menu-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-  }
-  
-  /* Stil pentru imagine */
-  .menu-item .menu_img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-top: auto;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease, transform 0.3s ease; /* Tranziții animate */
-  }
-  
-  /* Imaginea revine la culoare la hover */
-  .menu-item:hover .menu_img {
-    filter: grayscale(0%);
-  }
-  
-  /* Titlul produsului */
-  .menu-item h4 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin: 10px 0 5px;
-    transition: color 0.3s;
-  }
-  
-  /* Descrierea produsului */
-  .menu-item p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 8px;
-  }
-  
-  /* Prețul produsului */
-  .menu-item .price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 15px;
-  }
-  
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Tranziții pentru scalare și umbră */
+}
+
+/* Efect de hover pentru întregul item */
+.menu-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+/* Stil pentru imagine */
+.menu-item .menu_img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease; /* Tranziții animate */
+}
+
+/* Imaginea revine la culoare la hover */
+.menu-item:hover .menu_img {
+  filter: grayscale(0%);
+}
+
+/* Titlul produsului */
+.menu-item h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0 5px;
+  transition: color 0.3s;
+}
+
+/* Descrierea produsului */
+.menu-item p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* Prețul produsului */
+.menu-item .price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
 /* Responsivitate */
 @media (max-width: 768px) {
   .menu-item {
@@ -425,20 +417,20 @@ margin: 0 auto;
 }
 
 .menu_img {
-  width: 250px;       /* Lățimea imaginii */
-  height: 250px;      /* Înălțimea imaginii */
-  object-fit: cover;  /* Imaginea se va adapta fără a fi distorsionată */
+  width: 250px; /* Lățimea imaginii */
+  height: 250px; /* Înălțimea imaginii */
+  object-fit: cover; /* Imaginea se va adapta fără a fi distorsionată */
   border-radius: 12px; /* Colțuri rotunjite pentru un aspect mai plăcut */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Tranziții line */
 }
-
 
 /*CONTACTS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .contact-section {
   padding-top: 250px;
   padding-bottom: 150px;
+  background-image: linear-gradient(to top, #d0d0d0, rgba(0, 0, 255, 0));
 
-  background-image: url(../img/contact_img2.jpg);
+  /* background-image: url(../img/contact_img2.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -449,26 +441,26 @@ margin: 0 auto;
   justify-content: space-between;
   padding: 40px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.6); 
+
+  /* background: rgba(255, 255, 255, 0.6);  */
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
-
+  /* 
   backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px); 
-
+  -webkit-backdrop-filter: blur(10px);  */
 
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-img {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 100%; 
-  max-width: 600px; 
-  height: auto; 
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  /* background-image: radial-gradient(circle at center, #8c2727, #ff7f32, #f9f400, #ffffff); */
 }
-
 
 .contact-info {
   display: flex;
@@ -614,6 +606,12 @@ margin: 0 auto;
 .social-img img {
   border-radius: 25px;
 }
+.social-img-img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+}
+
 .social-container {
   display: flex;
   flex-direction: column;
@@ -809,7 +807,6 @@ margin: 0 auto;
 /*ADMIN////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*Admin-meniu products*/
-
 
 .admin_meniu {
   max-width: 500px;
@@ -1044,9 +1041,8 @@ th {
 .admin-products-existing textarea {
   resize: vertical;
   height: 100px;
-}footer
-
-.admin-products-existing input[type="submit"] {
+}
+footer .admin-products-existing input[type="submit"] {
   background: #b53b3b; /* Traditional Japanese red */
   color: white;
   font-size: 16px;
@@ -1133,7 +1129,6 @@ td {
   outline: none; /* Remove the default focus outline */
   box-shadow: 0 0 5px 2px rgba(197, 140, 67, 0.7); /* Soft glow for focus */
 }
-
 
 footer {
   background-color: #333;

@@ -138,7 +138,8 @@ if (isset($_SESSION['feedback_message'])) {
     <div class="container">
         <div class="social-content">
             <div class="social-img">
-                <img src="./img/IMG_legend.avif" width="650px" alt="">
+            <img src="./img/IMG_legend.avif" class="social-img-img" alt="">
+
             </div>
             <div class="social-container">
                 <div class="content-social">
