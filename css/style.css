@@ -156,7 +156,7 @@ html {
 
 /* Overlay-ul pentru blur */
 
-/* Stilurile textului pentru a fi deasupra overlay-ului */
+
 
 /* Title Styling */
 .main__title {
@@ -326,15 +326,17 @@ justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* border: 1px solid #ddd; */
+  border: 1px solid #ddd;
   padding: 20px;
   margin: 15px;
-  /* background-color: #f9f9f9; */
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+ /* background-image: url(../img/papirus.png); */
+  /* background-color: #797979; */
   border-radius: 8px;
   width: 300px;
   box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
-  background-image: url(../img/papirus.png);
+  /* background-image: url(../img/papirus.png); */
   background-size: 100% 100%; /* Lățime 100% și înălțime 200% (extinsă pe verticală) */
   background-repeat: no-repeat;
   background-blend-mode: overlay;
