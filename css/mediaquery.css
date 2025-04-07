@@ -1,31 +1,32 @@
+/* General styles for navigation menu */
 .navbar__items.open {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 10px;
   position: absolute;
-  top: 70px; 
+  top: 70px;
   right: 0;
-  width: 100%; 
+  width: 100%;
   z-index: 1000;
 }
 
+/* Media queries for different screen sizes */
+
+/* For screens smaller than 997px */
 @media (max-width: 997px) {
-  /* Ascunde lista de navigare */
   .navbar__items {
     display: none;
   }
 
-  /* Afișează meniul când este deschis pe ecrane mici */
   .navbar__items.open {
     display: flex;
     flex-direction: column;
     max-width: 50%;
-    background: rgba(0, 0, 0, 0.5); /* Fundal transparent cu 50% opacitate */
+    background: rgba(0, 0, 0, 0.5);
   }
 
-  /* Afișează butonul hamburger */
   .hamburger-menu {
     display: block;
     font-size: 30px;
@@ -48,151 +49,129 @@
   }
 }
 
+/*CONTACT*/
+
+/* For screens smaller than 768px */
+
+@media (min-width: 1200px) {
+  .contact-info-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .header {
+    box-sizing: border-box;
+  }
+
+  .footer{
+    width: 98%;
+    }
+  .map-section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contact-img {
+    max-width: 400px;
+    height: auto;
+  }
+}
+
+@media (min-width: 1032px) {
+  .footer {
+width: 98%;
+  }
+}
+@media (max-width: 997px) {
+  .hamburger-menu {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+}
+@media (max-width: 820px) {
+  .footer {
+width: 98%;
+  }}
+
 @media (max-width: 768px) {
   .navbar__list {
-   
     flex-direction: column;
     gap: 15px;
   }
+.footer{
+width: 98%;
+}
+.map-section {
+  margin-right: 0;
+}
 
-  /* Meniul va deveni vizibil când se adaugă clasa 'open' */
+.contact-info{
+  align-items: center;
+
+}
+
+.contact-info-header{
+  margin-right: 0;
+}
+.footer-content{
+  box-sizing: border-box;
+}
+  .contact-info-header{
+    /* margin: 0; */
+  }
+
+  .map-section{
+    /* margin-left: 120px; */
+  }
   .navbar__items.open {
     display: flex;
     flex-direction: column;
-    max-width: 100%; /* Asigură că meniul ocupă întreaga lățime pe ecrane de 768px */
-    background: rgba(0, 0, 0, 0.5); /* Fundal transparent cu 50% opacitate */
-    position: absolute;
-    top: 70px;
-    right: 0;
-    z-index: 1000;
+    max-width: 50%;
+    background: rgba(0, 0, 0, 0.5);
   }
 
-  /* Arată butonul hamburger pe mobil */
   .hamburger-menu {
     display: block;
   }
 
-  /* Opțional, poți adăuga stiluri pentru containerul social */
-  .social-content {
+  .contact-info-content {
     display: flex;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 576px) {
-  .legend-image img {
-    max-width: 90%;
-    width: 350px;
-  }
-}
-
-@media (max-width: 480px) {
-
-
-  .footer {
-    width: 100%; 
-    padding: 20px; 
-    box-sizing: border-box; 
-  }
-}
-
-
-/*contact*/
-/* Stiluri pentru ecrane mari (mai mari de 1200px) */
-@media (min-width: 1200px) {
-  .contact-info-content {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-  }
-
-  .header{
-    box-sizing: border-box;
-  }
-
-  .contact-form {
-      width: 45%;
-  }
-
-  .map-section {
-      display: flex;
-      justify-content: space-between;
-  }
-
-  .contact-img {
-      max-width: 400px;
-      height: auto;
-  }
-}
-
-/* Stiluri pentru ecrane între 768px și 1199px */
-/* @media (max-width: 1199px) and (min-width: 768px) {
-  .contact-info-content {
-      display: block;
-      padding: 20px;
-  }
-
-  .contact-form {
-      width: 100%;
-      margin-bottom: 20px;
-  }
-
-  .map-section {
-      display: block;
-      margin-top: 20px;
-  }
-
-  .contact-img {
-      max-width: 300px;
-      height: auto;
-      margin: 0 auto;
-  }
-}
-
-@media (max-width: 997px) {
-
-}
-/* Stiluri pentru ecrane mici (sub 768px) */
-@media (max-width: 768px) {
-  .navbar__items {
-      display: none; /* Ascunde meniul pe mobil, va apărea doar cu butonul hamburger */
-  }
-
-  .navbar__menu.open {
-      display: flex; /* Arată meniul când este activat */
-      flex-direction: column;
-      background: rgba(0, 0, 0, 0.5); /* Fundal transparent */
-      width: 100%;
+    flex-direction: column; 
   }
 
   .contact-info-header h1 {
-      font-size: 1.5em;
+    font-size: 1.5em;
   }
 
   .contact-info p {
-      font-size: 0.9em;
+    font-size: 0.9em;
   }
 
   .contact-form {
-      width: 100%;
+    width: 100%;
   }
 
   .social-img {
-      width: 100%;
+    width: 100%;
   }
 
   .footer-content {
-      text-align: center;
-      box-sizing: border-box;
+    /* text-align: center; */
+    box-sizing: border-box;
   }
 
   .contact-img {
-      width: 80%; /* Imaginea se va ajusta mai bine pe ecrane mici */
-      margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
   }
 
   iframe {
-      width: 100%; /* Adaptează dimensiunea iframe pentru ecrane mici */
-      height: 250px;
+    width: 100%;
+    height: 250px;
   }
-} */
+}
+
+

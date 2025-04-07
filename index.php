@@ -52,6 +52,9 @@ if (isset($_SESSION['feedback_message'])) {
     <link rel="stylesheet" href="css/mediaquery.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
+
+
+<body>
 <header class="header">
  <nav class="navbar">
         <a href="#" class="navbar__logo" aria-label="Sweet Treats homepage">
@@ -85,8 +88,6 @@ if (isset($_SESSION['feedback_message'])) {
         </div>
     </nav>
 </header> 
-
-<body>
 
 <main class="main">
     
@@ -174,15 +175,6 @@ if (isset($_SESSION['feedback_message'])) {
     </div>
 </section>
 
-
-
-<footer class="footer">
-    <div class="footer-content">
-        <p>Sweet Treats - Toate drepturile rezervate &copy; 1817</p>
-    </div>
-</footer>
-
-<!-- Modal Window -->
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -192,6 +184,15 @@ if (isset($_SESSION['feedback_message'])) {
         <p id="modal-price"></p>
     </div>
 </div>
+
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>Sweet Treats - Toate drepturile rezervate &copy; 1817</p>
+    </div>
+</footer>
+
+<!-- Modal Window -->
 
 
 <script src="./script/script.js"></script>
