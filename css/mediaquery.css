@@ -116,8 +116,14 @@ width: 98%;
 .contact-info-header{
   margin-right: 0;
 }
-.footer-content{
+.social-content{
   box-sizing: border-box;
+}
+
+
+.social-content{
+  display: flex;
+flex-direction: column;
 }
   .contact-info-header{
     /* margin: 0; */
@@ -174,4 +180,10 @@ width: 98%;
   }
 }
 
+
+@media (max-width: 768px) {
+.footer{
+  width: 95%;
+}
+  }
 

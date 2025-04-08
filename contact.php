@@ -31,8 +31,14 @@ $settings = $result->fetch_assoc();
             <li class="navbar__list">
                 <button class="back-button" onclick="window.history.back();" aria-label="Go back">Back</button>
             </li>
+          
         </ul>
+          <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Open menu">
+                &#9776;
+                </div>
     </nav>
+
+
 </header>
 
 <section class="contact-section">
@@ -128,7 +134,7 @@ $settings = $result->fetch_assoc();
 
 
 
-
+<script src="./script/script.js"></script>
 
 </body>
 </html>
