@@ -369,7 +369,7 @@ justify-content: center;
   object-fit: cover;
   border-radius: 8px;
   margin-top: auto;
-  filter: grayscale(100%);
+  filter: grayscale(50%);
   transition: filter 0.3s ease, transform 0.3s ease; /* Tranziții animate */
 }
 
@@ -443,8 +443,7 @@ justify-content: center;
   justify-content: space-between;
   padding: 40px;
   border-radius: 10px;
-
-  /* background: rgba(255, 255, 255, 0.6);  */
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
@@ -553,7 +552,6 @@ justify-content: center;
 }
 /*//////////////////////////////////////////////////////////////////*/
 
-/*/////////////////////////////////////////////////////////////////*/
 .legend-content {
   flex: 1;
   padding: 20px;
