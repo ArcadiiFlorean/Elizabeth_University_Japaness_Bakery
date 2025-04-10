@@ -68,14 +68,15 @@ if (isset($_SESSION['feedback_message'])) {
                 <li class="navbar__list">
                     <a class="navbar__link" href="#featured-products" aria-label="Daily menu">Daily Menu</a>
                 </li>
-                <li class="navbar__list">
+                <!-- <li class="navbar__list">
                     <a class="navbar__link" href="feedback.php" aria-label="Submit feedback">Submit Feedback</a>
-                </li>
+                </li> -->
                 <li class="navbar__list">
                     <a class="navbar__link" href="#about" aria-label="About us">The Legend </a>
                 </li>
                 <li class="navbar__list">
                     <a class="navbar__link" href="./contact.php" aria-label="Contact us">Contact</a>
+                 
                 </li>
                 <li class="navbar__list">
                     <a class="navbar__link" href="./admin/login.php" aria-label="Login">Admin</a>

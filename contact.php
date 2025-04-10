@@ -41,7 +41,7 @@ $settings = $result->fetch_assoc();
 
 </header>
 
-<section class="contact-section">
+<section id="#contact" class="contact-section">
     <div class="container">
         <div class="contact-info-content">
             

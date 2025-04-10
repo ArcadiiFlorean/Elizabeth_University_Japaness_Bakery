@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: admin_menu.php"); // Redirecționează spre pagina adminului
             exit();
         } else {
-            echo "Parolă incorectă!";
+            $error = "Parolă incorectă!";
+
         }
     } else {
         echo "Nume de utilizator inexistent!";

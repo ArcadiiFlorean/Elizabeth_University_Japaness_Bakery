@@ -79,23 +79,26 @@ function get_feedback() {
 function authenticate_admin($username, $password) {
     global $conn;
 
-    // Verificăm dacă administratorul există în baza de date
     $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Dacă există un administrator cu acest nume de utilizator
     if ($result->num_rows == 1) {
         $admin = $result->fetch_assoc();
-        
-        // Verificăm dacă parola introdusă este corectă
         if (password_verify($password, $admin['password'])) {
-            return true; // Autentificare reușită
-        } else {
-            return false; // Parola incorectă
+            return true;
         }
-    } else {
-        return false; // Nume de utilizator inexistent
     }
+
+    return false;
+}
+function register_user($username, $password, $role) {
+    global $conn;
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = $conn->prepare("INSERT INTO admins (username, password, role) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $username, $hashed_password, $role);
+
+    return $stmt->execute();
 }
