@@ -3,12 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Elizabeth Bakery Presentation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* centrează vertical */
+      align-items: center;     /* centrează orizontal */
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #fef6f0;
+    }
+
+    video {
+      max-width: 70%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <h1>Elizabeth Japanese Bakery</h1>
   <p>This is a presentation version. The full version runs on a PHP server.</p>
 
-  <video width="720" controls>
+  <video controls>
     <source src="./video-presentation/Recording-01.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
